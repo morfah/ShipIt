@@ -1,4 +1,4 @@
-Ship-it
+Ship It
 =======
 
-A game
+A game made in Unity3D.
