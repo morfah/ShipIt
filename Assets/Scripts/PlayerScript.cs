@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 	public Rigidbody primaryBullet;
+    public GameObject bulletOrigin;
 	public float MovementSpeed;
 	public float RotateSpeed;
 	public double RefireRate;
@@ -36,8 +37,8 @@ public class PlayerScript : MonoBehaviour {
         if (Fire1 && i >= (1 / RefireRate))
         {
             Rigidbody bulletInstance;
-            bulletInstance = Instantiate(primaryBullet, transform.position, transform.rotation) as Rigidbody;
-            bulletInstance.AddForce(Vector3.forward * 2500);
+            bulletInstance = Instantiate(primaryBullet, bulletOrigin.transform.position, bulletOrigin.transform.rotation) as Rigidbody;
+            bulletInstance.AddForce(bulletOrigin.transform.forward * 2500);
             i = 0;
         }
         else if (i > RefireRate)
