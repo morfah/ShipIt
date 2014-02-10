@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerScript : MonoBehaviour {
+public class Player : MonoBehaviour {
 	public Rigidbody testBullet;
     public GameObject bulletOrigin;
 	public float MovementSpeed;
@@ -36,9 +36,10 @@ public class PlayerScript : MonoBehaviour {
 		// Fire update
         if (Fire1 && i >= (1 / RefireRate))
         {
-            Rigidbody bulletInstance;
-            bulletInstance = Instantiate(testBullet, bulletOrigin.transform.position, bulletOrigin.transform.rotation) as Rigidbody;
-            bulletInstance.AddForce(bulletOrigin.transform.up * 2500);
+            //Rigidbody bulletInstance;
+            //bulletInstance = Instantiate(testBullet, bulletOrigin.transform.position, bulletOrigin.transform.rotation) as Rigidbody;
+            //bulletInstance.AddForce(bulletInstance.transform.up * 2500);
+            Instantiate(testBullet, bulletOrigin.transform.position, bulletOrigin.transform.rotation);
             i = 0;
         }
         else if (i > RefireRate)
