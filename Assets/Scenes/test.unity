@@ -1098,7 +1098,7 @@ GameObject:
   - 114: {fileID: 1144331639}
   - 75: {fileID: 1144331640}
   m_Layer: 0
-  m_Name: testMissle
+  m_Name: testMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

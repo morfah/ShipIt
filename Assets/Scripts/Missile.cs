@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Missle : MonoBehaviour {
+public class Missile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
