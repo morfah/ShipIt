@@ -2,24 +2,26 @@
 using System.Collections;
 
 public class Missile : MonoBehaviour {
-	public float Damage;
 	public float TimeLimit;
 	public GameObject Explosion;
 
 	private float spawnedTime;
+	//private GameObject nme;
 
 	// Use this for initialization
 	void Start () {
 		//Default variables.
 		if (TimeLimit == 0f)
 			TimeLimit = 5f;
-		if (Damage == 0f)
-			Damage = 25f;
+//		if (Damage == 0f)
+//			Damage = 25f;
 
 		spawnedTime = Time.time;
 
 		// constantForce seems best for missiles.
 		rigidbody.constantForce.force = transform.up * 500;
+
+		//this.tag = "";
 	}
 	
 	// Update is called once per frame
@@ -32,8 +34,23 @@ public class Missile : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		// Do not Explode() if the first collision is the player it self.
 		// Because the missile spawns slightly inside the player.
-		if (collision.contacts[0].otherCollider.name != "Player")
+		if (collision.contacts[0].otherCollider.tag != "Player"){
 			Explode();
+			return;
+		}
+
+//		foreach (ContactPoint contactpoint in collision.contacts){
+//			if (contactpoint.otherCollider.tag == "Enemy") {
+////				nme = GameObject.Find("Enemy").GetComponent(BehaviorScript);
+////				nme.HealthPoints += Damage;
+//				Enemy nme;
+//				nme = contactpoint.otherCollider.GetComponent(Enemy);
+//				nme.HealthPoints += Damage;
+//			}
+//			else if (contactpoint.otherCollider.tag != "Player"){
+//				Explode ();
+//			}
+//		}
 	}
 
 	// Explode missile

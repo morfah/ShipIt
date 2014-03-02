@@ -12,7 +12,6 @@ public class Player : MonoBehaviour {
 	private Rigidbody bulletInstance;
 	private float missileStartTime;
 	private float timer;
-	
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +24,7 @@ public class Player : MonoBehaviour {
 		    RefireRate = 8; // default firerate, 8 shots per second
 		Screen.lockCursor = true; // so that the mouse wont escape the window
 		i = 0;
+		this.tag = "Player";
 	}
 	
 	// Update is called once per frame

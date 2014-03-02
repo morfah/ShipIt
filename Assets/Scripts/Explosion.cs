@@ -20,6 +20,7 @@ public class Explosion : MonoBehaviour {
 			Destroy(gameObject);
 
 		//TODO Sound
+		//TODO Particles
 		//TODO https://docs.unity3d.com/Documentation/ScriptReference/Rigidbody.AddExplosionForce.html
 	}
 }
