@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Default variables.
 		if (MovementSpeed == 0f)
 			MovementSpeed = 10f;
 		if (RotateSpeed == 0f)
@@ -40,22 +41,11 @@ public class Player : MonoBehaviour {
 		// Fire update
 		if (Fire1 && i >= (1 / RefireRate))
 		{
-			//bulletInstance = Instantiate(testBullet, bulletOrigin.transform.position, bulletOrigin.transform.rotation) as Rigidbody;
 			Instantiate(testBullet, bulletOrigin.transform.position, bulletOrigin.transform.rotation);
-			//missileStartTime = Time.time;
-			//bulletInstance.AddForce(bulletInstance.transform.up * 2500);
 			i = 0;
 		}
 	        else if (i > RefireRate)
 	            i = 0;
 		i += Time.deltaTime;
-
-		//if ((Time.time - missileStartTime) > 1)
-		//{
-		//    Destroy(bulletInstance);
-		//}
-
-		//timer += Time.deltaTime;
-		//Debug.Log ("Diff: " + (timer - Time.time));
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Missile : MonoBehaviour {
+	public float Damage;
 	public float TimeLimit;
 	public GameObject Explosion;
 
@@ -9,29 +10,28 @@ public class Missile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Default variables.
+		if (TimeLimit == 0f)
+			TimeLimit = 5f;
+		if (Damage == 0f)
+			Damage = 25f;
+
 		spawnedTime = Time.time;
-		//Debug.Log("Missile Spawned! " + gameObject.name);
 
-		// constantForce
+		// constantForce seems best for missiles.
 		rigidbody.constantForce.force = transform.up * 500;
-		//rigidbody.constantForce.relativeForce = transform.up * 1000;
-
-		//Add force
-		//rigidbody.AddForce(transform.up * 2500);
-
-		// lek
-		//rigidbody.constantForce.force = Vector3.up * 10000000;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log("Time.deltaTime - startTime = " + (Time.time - spawnedTime), gameObject);
-		if ((Time.time - spawnedTime) > 5)
+		// If the missile has not collided with anything for a while it will Explode()
+		if ((Time.time - spawnedTime) > TimeLimit)
 			Explode();
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		//Debug.Log(collision.contacts[0].otherCollider.name);
+		// Do not Explode() if the first collision is the player it self.
+		// Because the missile spawns slightly inside the player.
 		if (collision.contacts[0].otherCollider.name != "Player")
 			Explode();
 	}
@@ -40,11 +40,11 @@ public class Missile : MonoBehaviour {
 	void Explode()
 	{
 		// Only destroy the clone objects. Don't touch the original.
-		// Is there a better way to do this?
+		// TODO: Is there a better way to spawn objects than to Instantiate() an existed GameObject?
 		if (!gameObject.name.EndsWith("(Clone)")) 
 			return;
 
-		//Spawn light
+		//See Explosion.cs for all the Explosion logic
 		Instantiate(Explosion, transform.position, transform.rotation);
 
 		//Dissapear
