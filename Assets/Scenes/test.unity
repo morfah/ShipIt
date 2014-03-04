@@ -13,13 +13,13 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_Fog: 0
-  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2675fa597025e67448ac3b1065da4caf, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -659,9 +659,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 197541417}
+  - {fileID: 1841616896}
   - {fileID: 1282264532}
   - {fileID: 1116329506}
-  - {fileID: 1841616896}
   - {fileID: 115793735}
   - {fileID: 634463363}
   - {fileID: 833569448}
@@ -1358,6 +1358,30 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2660b5f033a6f1b47b9eece08806ac4b, type: 2}
+    - target: {fileID: 2000000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: .269085199
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: .529274464
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: .580882311
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
+      propertyPath: m_HDR
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
   m_RootGameObject: {fileID: 2043326618}
@@ -3235,7 +3259,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
+  m_BackGroundColor: {r: .269085199, g: .529274464, b: .580882311, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
