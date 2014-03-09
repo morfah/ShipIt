@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeLimit: 5
-  Explosion: {fileID: 1243303536}
+  Explosion: {fileID: 1629983276}
 --- !u!75 &1144331640
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -1910,7 +1910,7 @@ GameObject:
   - 108: {fileID: 1243303537}
   - 114: {fileID: 1243303539}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: Explosion2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1925,9 +1925,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: .926470578, g: .541693985, b: .211180776, a: 1}
-  m_Intensity: 3.68000007
-  m_Range: 10.2330608
+  m_Color: {r: .95588237, g: .551328897, b: .203827888, a: 1}
+  m_Intensity: 4.05000019
+  m_Range: 17.1817474
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1958,7 +1958,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243303536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.77718067, y: 32.3762474, z: -13.5858841}
+  m_LocalPosition: {x: -6.77718067, y: 32.3762474, z: -17.0439243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1973,6 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1126c51fb8ad4b439d84ae5db16ba26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundFile: {fileID: 8300000, guid: f6dd0efffaa138449954af8ba15c114e, type: 3}
 --- !u!1 &1282264531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2096,8 @@ GameObject:
   - 33: {fileID: 1399929993}
   - 65: {fileID: 1399929992}
   - 23: {fileID: 1399929991}
+  - 114: {fileID: 1399929990}
+  - 114: {fileID: 1399929994}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2118,6 +2121,20 @@ Transform:
   - {fileID: 677380495}
   - {fileID: 991364472}
   m_Father: {fileID: 0}
+--- !u!114 &1399929990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399929988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd47a5250c6f784e8e611c5d0d408b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPoints: 0
+  ArmorPoints: 0
+  Explosion: {fileID: 1243303536}
 --- !u!23 &1399929991
 Renderer:
   m_ObjectHideFlags: 0
@@ -2161,6 +2178,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1399929988}
   m_Mesh: {fileID: 4300000, guid: 48f7ccb2863894f46b8ca5ece0d12801, type: 3}
+--- !u!114 &1399929994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399929988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8cd147b76770e2478adceaa12e120da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
 --- !u!1 &1496505143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2344,81 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1525208373}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1629983276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1629983279}
+  - 108: {fileID: 1629983278}
+  - 114: {fileID: 1629983277}
+  m_Layer: 0
+  m_Name: Explosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1629983277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629983276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1126c51fb8ad4b439d84ae5db16ba26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundFile: {fileID: 8300000, guid: ade7f4fc22557444f89af3cb6eed1acd, type: 3}
+--- !u!108 &1629983278
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629983276}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 2
+  m_Color: {r: .926470578, g: .541693985, b: .211180776, a: 1}
+  m_Intensity: 3.68000007
+  m_Range: 10.2330608
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &1629983279
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629983276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.77718067, y: 32.3762474, z: -13.5858841}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1677445652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,7 +2958,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
       propertyPath: Explosion
       value: 
-      objectReference: {fileID: 1243303536}
+      objectReference: {fileID: 1629983276}
     - target: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
       propertyPath: m_UseGravity
       value: 0
@@ -2904,6 +3008,7 @@ GameObject:
   - 65: {fileID: 2043326622}
   - 23: {fileID: 2043326621}
   - 114: {fileID: 2043326620}
+  - 114: {fileID: 2043326624}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2988,6 +3093,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 989842449}
   m_GameObject: {fileID: 2043326618}
   m_Mesh: {fileID: 4300000, guid: 48f7ccb2863894f46b8ca5ece0d12801, type: 3}
+--- !u!114 &2043326624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2043326618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd47a5250c6f784e8e611c5d0d408b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPoints: 0
+  ArmorPoints: 0
+  Explosion: {fileID: 0}
 --- !u!1 &2051963947
 GameObject:
   m_ObjectHideFlags: 0

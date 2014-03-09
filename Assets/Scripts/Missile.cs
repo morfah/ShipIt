@@ -21,7 +21,7 @@ public class Missile : MonoBehaviour {
 		// constantForce seems best for missiles.
 		rigidbody.constantForce.force = transform.up * 500;
 
-		//this.tag = "";
+		this.tag = "Missile";
 	}
 	
 	// Update is called once per frame
