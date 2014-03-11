@@ -19,7 +19,7 @@ public class Missile : MonoBehaviour {
 		spawnedTime = Time.time;
 
 		// constantForce seems best for missiles.
-		rigidbody.constantForce.force = transform.up * 5000;
+		rigidbody.constantForce.force = transform.up * 500;
 
 		this.tag = "Missile";
 	}
