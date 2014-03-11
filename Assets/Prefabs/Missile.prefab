@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeLimit: 5
-  Explosion: {fileID: 0}
+  Explosion: {fileID: 100000, guid: 55271699784e0294a8ae70cab9834621, type: 2}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
