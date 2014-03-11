@@ -109,10 +109,6 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .512277246
       objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
-      propertyPath: Explosion
-      value: 
-      objectReference: {fileID: 1243303536}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
   m_RootGameObject: {fileID: 906425859}
@@ -757,10 +753,6 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
-      propertyPath: testBullet
-      value: 
-      objectReference: {fileID: 1144331638}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
   m_RootGameObject: {fileID: 2043326618}
@@ -1324,10 +1316,6 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .452783674
       objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
-      propertyPath: Explosion
-      value: 
-      objectReference: {fileID: 1243303536}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
   m_RootGameObject: {fileID: 1399929988}
@@ -1872,7 +1860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPoints: 0
   ArmorPoints: 0
-  Explosion: {fileID: 1243303536}
+  Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
 --- !u!23 &906425863
 Renderer:
   m_ObjectHideFlags: 0
@@ -3120,7 +3108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPoints: 0
   ArmorPoints: 0
-  Explosion: {fileID: 1243303536}
+  Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
 --- !u!23 &1399929991
 Renderer:
   m_ObjectHideFlags: 0
@@ -3905,7 +3893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3421f70974da3bd4284a43fa40c8eacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testBullet: {fileID: 1144331638}
+  testBullet: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
   bulletOrigin: {fileID: 707430957}
   MovementSpeed: 15
   RotateSpeed: 50
