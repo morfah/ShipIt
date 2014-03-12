@@ -540,11 +540,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3421f70974da3bd4284a43fa40c8eacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testBullet: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
-  bulletOrigin: {fileID: 100008}
+  PrimaryWeaponType: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
+  SecondaryWeaponType: {fileID: 0}
+  PrimaryRefireRate: 5
+  SecondaryRefireRate: 0
+  PrimaryWeaponOrigin: {fileID: 100008}
+  SecondaryWeaponOrigin: {fileID: 100010}
   MovementSpeed: 15
-  RotateSpeed: 50
-  RefireRate: 4
+  MouseSensitivity: 50
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

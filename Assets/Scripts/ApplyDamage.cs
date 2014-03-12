@@ -37,13 +37,13 @@ public class ApplyDamage : MonoBehaviour {
 			// TODO Armor code
 			switch (contactpoint.otherCollider.tag) {
 			case "Missile":
-				Debug.Log("Missile hit!");
+				//Debug.Log("Missile hit!");
 				HealthPoints -= BaseMissileDamage;
 //				if (contactpoint.thisCollider.tag == "Enemy" && contactpoint.thisCollider.tag != "Player")
 //					audio.PlayOneShot(HitConfirmedSound, 0.7F);
 				break;
 			case "Bullet":
-				Debug.Log("Bullet hit!");
+				//Debug.Log("Bullet hit!");
 				HealthPoints -= BaseBulletDamage;
 				break;
 			default:
