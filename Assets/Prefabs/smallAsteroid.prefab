@@ -11,8 +11,8 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 95: {fileID: 9500000}
-  - 64: {fileID: 6400000}
   - 54: {fileID: 5400000}
+  - 64: {fileID: 6400000}
   m_Layer: 0
   m_Name: smallAsteroid
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.052269, y: 48.212822, z: -46.7559891}
-  m_LocalScale: {x: 4.72429657, y: 4.72429657, z: 4.72429657}
+  m_LocalPosition: {x: 24.0626411, y: 56.372757, z: -71.6524506}
+  m_LocalScale: {x: 4.13555622, y: 4.13555622, z: 4.13555622}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!23 &2300000
@@ -43,7 +43,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 94a36e14af6f4de41b4c86d6d6efebc8, type: 2}
+  - {fileID: 2100000, guid: b3a13eb4d70a3fe4dbb37033a527d0b2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -58,7 +58,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: ff9997fe2dcb6cd44b61224ff67e7359, type: 3}
+  m_Mesh: {fileID: 4300000, guid: acee8ba18a417074eaa9bcaad709dffb, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -66,7 +66,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 200
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
@@ -86,7 +86,7 @@ MeshCollider:
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: ff9997fe2dcb6cd44b61224ff67e7359, type: 3}
+  m_Mesh: {fileID: 4300000, guid: acee8ba18a417074eaa9bcaad709dffb, type: 3}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -95,7 +95,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ff9997fe2dcb6cd44b61224ff67e7359, type: 3}
+  m_Avatar: {fileID: 9000000, guid: acee8ba18a417074eaa9bcaad709dffb, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_ApplyRootMotion: 1
