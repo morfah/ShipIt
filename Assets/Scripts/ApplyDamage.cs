@@ -33,24 +33,29 @@ public class ApplyDamage : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 		foreach (ContactPoint contactpoint in collision.contacts){
-			Tags = contactpoint.otherCollider.tag.Split(',');
-			// Do not apply damage if colliding with an child object. Like a missile the player or enemy fired it self.
-			if (this.tag != Tags[1]) {
-				// Damage types
-				// TODO Armor code
-				switch (Tags[0]) {
-				case "Missile":
-					//Debug.Log("Missile hit!");
-					HealthPoints -= BaseMissileDamage;
-	//				if (contactpoint.thisCollider.tag == "Enemy" && contactpoint.thisCollider.tag != "Player")
-	//					audio.PlayOneShot(HitConfirmedSound, 0.7F);
-					break;
-				case "Bullet":
-					//Debug.Log("Bullet hit!");
-					HealthPoints -= BaseBulletDamage;
-					break;
-				default:
-					break;
+			if (contactpoint.otherCollider.tag.Contains(",")) {
+				Tags = contactpoint.otherCollider.tag.Split(',');
+				// Do not apply damage if colliding with an child object. Like a missile the player or enemy fired it self.
+				if (this.tag != Tags[1]) {
+					// Damage types
+					// TODO Armor code
+					switch (Tags[0]) {
+					case "Missile":
+						//Debug.Log("Missile hit!");
+						HealthPoints -= BaseMissileDamage;
+						//                if (contactpoint.thisCollider.tag == "Enemy" && contactpoint.thisCollider.tag != "Player")
+						//                    audio.PlayOneShot(HitConfirmedSound, 0.7F);
+						break;
+					case "Bullet":
+						//Debug.Log("Bullet hit!");
+						HealthPoints -= BaseBulletDamage;
+						break;
+					default:
+						break;
+					}
+				}
+				else{
+					// Other apply damage code here. e.g environmental
 				}
 			}
 		}
