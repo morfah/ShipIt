@@ -10,6 +10,7 @@ public class ApplyDamage : MonoBehaviour {
 
 	private int BaseMissileDamage;
 	private int BaseBulletDamage;
+	private string[] Tags;
 
 	// Use this for initialization
 	void Start () {
@@ -32,11 +33,12 @@ public class ApplyDamage : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 		foreach (ContactPoint contactpoint in collision.contacts){
+			Tags = contactpoint.otherCollider.tag.Split(',');
 			// Do not apply damage if colliding with an child object. Like a missile the player or enemy fired it self.
-			if (!contactpoint.otherCollider.transform.IsChildOf(gameObject.transform)) {
+			if (this.tag != Tags[1]) {
 				// Damage types
 				// TODO Armor code
-				switch (contactpoint.otherCollider.tag) {
+				switch (Tags[0]) {
 				case "Missile":
 					//Debug.Log("Missile hit!");
 					HealthPoints -= BaseMissileDamage;

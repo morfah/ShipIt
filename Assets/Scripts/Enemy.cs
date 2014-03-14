@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
 			Projectile = Instantiate(PrimaryWeaponType,
 			            PrimaryWeaponOrigin.transform.position, 
 			            PrimaryWeaponOrigin.transform.rotation) as Rigidbody;
-			Projectile.transform.parent = gameObject.transform;
+			Projectile.tag = PrimaryWeaponType.tag + ",Enemy";
 			i = 0;
 		}
 		else if (i > PrimaryRefireRate)

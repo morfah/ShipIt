@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
 			Projectile = Instantiate(PrimaryWeaponType,
 			            PrimaryWeaponOrigin.transform.position, 
 			            PrimaryWeaponOrigin.transform.rotation) as Rigidbody;
-			Projectile.transform.parent = gameObject.transform;
+			Projectile.tag = PrimaryWeaponType.tag + ",Player";
 			i = 0;
 		}
 	        else if (i > PrimaryRefireRate)

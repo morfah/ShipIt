@@ -6,52 +6,37 @@ public class Missile : MonoBehaviour {
 	public GameObject Explosion;
 
 	private float spawnedTime;
-	//private GameObject nme;
+	private string[] Tags;
 
 	// Use this for initialization
 	void Start () {
 		//Default variables.
 		if (TimeLimit == 0f)
 			TimeLimit = 5f;
-//		if (Damage == 0f)
-//			Damage = 25f;
 
 		spawnedTime = Time.time;
 
 		// constantForce seems best for missiles.
 		rigidbody.constantForce.force = transform.up * 500;
-
-		this.tag = "Missile";
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//transform.Translate(Vector3.up * 40 * Time.deltaTime);
+
 		// If the missile has not collided with anything for a while it will Explode()
 		if ((Time.time - spawnedTime) > TimeLimit)
 			Explode();
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		// Do not Explode() if the first collision is the player it self.
+		// Do not Explode() if the first collision is the player or enemy it self.
 		// Because the missile spawns slightly inside the player.
-		//if (collision.contacts[0].otherCollider.tag != "Player"){
-		if (!transform.IsChildOf(collision.contacts[0].otherCollider.transform)) {
+		Tags = this.tag.Split(',');
+		if (collision.contacts[0].otherCollider.tag != Tags[1]){
 			Explode();
 			return;
 		}
-
-//		foreach (ContactPoint contactpoint in collision.contacts){
-//			if (contactpoint.otherCollider.tag == "Enemy") {
-////				nme = GameObject.Find("Enemy").GetComponent(BehaviorScript);
-////				nme.HealthPoints += Damage;
-//				Enemy nme;
-//				nme = contactpoint.otherCollider.GetComponent(Enemy);
-//				nme.HealthPoints += Damage;
-//			}
-//			else if (contactpoint.otherCollider.tag != "Player"){
-//				Explode ();
-//			}
-//		}
 	}
 
 	// Explode missile
