@@ -32,34 +32,36 @@ public class ApplyDamage : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 		foreach (ContactPoint contactpoint in collision.contacts){
-
-			// Damage types
-			// TODO Armor code
-			switch (contactpoint.otherCollider.tag) {
-			case "Missile":
-				//Debug.Log("Missile hit!");
-				HealthPoints -= BaseMissileDamage;
-//				if (contactpoint.thisCollider.tag == "Enemy" && contactpoint.thisCollider.tag != "Player")
-//					audio.PlayOneShot(HitConfirmedSound, 0.7F);
-				break;
-			case "Bullet":
-				//Debug.Log("Bullet hit!");
-				HealthPoints -= BaseBulletDamage;
-				break;
-			default:
-				break;
+			// Do not apply damage if colliding with an child object. Like a missile the player or enemy fired it self.
+			if (!contactpoint.otherCollider.transform.IsChildOf(gameObject.transform)) {
+				// Damage types
+				// TODO Armor code
+				switch (contactpoint.otherCollider.tag) {
+				case "Missile":
+					//Debug.Log("Missile hit!");
+					HealthPoints -= BaseMissileDamage;
+	//				if (contactpoint.thisCollider.tag == "Enemy" && contactpoint.thisCollider.tag != "Player")
+	//					audio.PlayOneShot(HitConfirmedSound, 0.7F);
+					break;
+				case "Bullet":
+					//Debug.Log("Bullet hit!");
+					HealthPoints -= BaseBulletDamage;
+					break;
+				default:
+					break;
+				}
 			}
 		}
 	}
 	
 	void Die() {
-		Debug.Log("Dead!");
-
-		//See Explosion.cs for all the Explosion logic
-		Instantiate(Explosion, transform.position, transform.rotation);
-
-		//Dissapear
-		Destroy(gameObject);
+		if (tag != "Player"){
+			Instantiate(Explosion, transform.position, transform.rotation);
+			Destroy(gameObject);
+		}
+		else {
+			Debug.Log("YOU DIED! GAME OVER! STOP PLAYING!");
+		}
 
 	}
 }

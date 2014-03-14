@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 	private float missileStartTime;
 	private float timer;
 	private float MovementSpeedBonus;
+	private Rigidbody Projectile;
 
 	// Use this for initialization
 	void Start () {
@@ -54,9 +55,10 @@ public class Player : MonoBehaviour {
 		// Fire1 update
 		if (Fire1 && i >= (1 / PrimaryRefireRate))
 		{
-			Instantiate(PrimaryWeaponType,
+			Projectile = Instantiate(PrimaryWeaponType,
 			            PrimaryWeaponOrigin.transform.position, 
-			            PrimaryWeaponOrigin.transform.rotation);
+			            PrimaryWeaponOrigin.transform.rotation) as Rigidbody;
+			Projectile.transform.parent = gameObject.transform;
 			i = 0;
 		}
 	        else if (i > PrimaryRefireRate)

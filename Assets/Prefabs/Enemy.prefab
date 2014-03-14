@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: .467104197, y: -.123416662, z: 1.22362041}
+  m_LocalPosition: {x: .467105776, y: -.123416901, z: 1.15310144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400012}
@@ -168,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -.473186344, y: -.123416662, z: 1.22362041}
+  m_LocalPosition: {x: -.473230362, y: -.123416901, z: 1.153162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400012}
@@ -417,7 +417,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8cd147b76770e2478adceaa12e120da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  PrimaryWeaponType: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
+  SecondaryWeaponType: {fileID: 0}
+  PrimaryRefireRate: 3
+  SecondaryRefireRate: 0
+  PrimaryWeaponOrigin: {fileID: 100000}
+  SecondaryWeaponOrigin: {fileID: 100008}
+  MovementSpeed: 10
 --- !u!143 &14300000
 CharacterController:
   m_ObjectHideFlags: 1

@@ -34,7 +34,8 @@ public class Missile : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		// Do not Explode() if the first collision is the player it self.
 		// Because the missile spawns slightly inside the player.
-		if (collision.contacts[0].otherCollider.tag != "Player"){
+		//if (collision.contacts[0].otherCollider.tag != "Player"){
+		if (!transform.IsChildOf(collision.contacts[0].otherCollider.transform)) {
 			Explode();
 			return;
 		}
@@ -65,6 +66,7 @@ public class Missile : MonoBehaviour {
 		Instantiate(Explosion, transform.position, transform.rotation);
 
 		//Dissapear
+		//transform.DetachChildren();
 		Destroy(gameObject);
 	}
 }
