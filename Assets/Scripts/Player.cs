@@ -25,7 +25,6 @@ public class Player : MonoBehaviour {
 	private bool Fire1;
 	private bool Boost;
 
-
 	// Use this for initialization
 	void Start () {
 		//Default variables.
@@ -68,12 +67,29 @@ public class Player : MonoBehaviour {
 		//bool FlyDown = Input.GetButton("FlyDown");
 		Boost = Input.GetButton("Boost");
 		
-		MovementSpeedBonus = Boost ? 2f : 1f;
+		MovementSpeedBonus = Boost ? 2.5f : 1f;
 		
 		transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
+	}
+
+	void OnGUI () {
+		int hp;
+		int ap;
+		ApplyDamage[] ad;
+		ad = gameObject.GetComponents<ApplyDamage>();
+		hp = ad[0].HealthPoints;
+		ap = ad[0].ArmorPoints;
+		
+		GUI.Box(new Rect(Screen.width / 5, Screen.height - 30, 300, 25), 
+		          "HP: " + hp + "  Armor: " + ap + "  Exp: soon  Lvl: soon");
+
+		if (hp <= 0) {
+			GUI.Box(new Rect(Screen.width / 2-50, 50, 100, 20), 
+			        "\"Dead\"");
+		}
 	}
 }
