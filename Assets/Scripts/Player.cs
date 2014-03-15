@@ -19,6 +19,13 @@ public class Player : MonoBehaviour {
 	private float MovementSpeedBonus;
 	private Rigidbody Projectile;
 
+	private float h;
+	private float v;
+	private float mouseX;
+	private bool Fire1;
+	private bool Boost;
+
+
 	// Use this for initialization
 	void Start () {
 		//Default variables.
@@ -35,23 +42,6 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// Movement update
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
-		float mouseX = Input.GetAxis("Mouse X");
-		bool Fire1 = Input.GetButton("Fire1");
-		//bool FlyUp = Input.GetButton("FlyUp");
-		//bool FlyDown = Input.GetButton("FlyDown");
-		bool Boost = Input.GetButton("Boost");
-
-		MovementSpeedBonus = Boost ? 2f : 1f;
-
-		transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
-
 		// Fire1 update
 		if (Fire1 && i >= (1 / PrimaryRefireRate))
 		{
@@ -66,5 +56,24 @@ public class Player : MonoBehaviour {
 		i += Time.deltaTime;
 
 		//TODO add Fire2 code
+	}
+
+	void FixedUpdate () {
+		// Movement update
+		h = Input.GetAxis("Horizontal");
+		v = Input.GetAxis("Vertical");
+		mouseX = Input.GetAxis("Mouse X");
+		Fire1 = Input.GetButton("Fire1");
+		//bool FlyUp = Input.GetButton("FlyUp");
+		//bool FlyDown = Input.GetButton("FlyDown");
+		Boost = Input.GetButton("Boost");
+		
+		MovementSpeedBonus = Boost ? 2f : 1f;
+		
+		transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+		transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+		//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+		//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+		transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
 	}
 }

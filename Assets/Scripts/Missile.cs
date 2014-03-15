@@ -53,5 +53,6 @@ public class Missile : MonoBehaviour {
 		//Dissapear
 		//transform.DetachChildren();
 		Destroy(gameObject);
+		//gameObject.SetActive(false);
 	}
 }

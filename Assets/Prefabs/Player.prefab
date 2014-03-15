@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: .467104197, y: -.123416901, z: 1.13879013}
+  m_LocalPosition: {x: .467104197, y: -.123416901, z: 2.64344025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400014}
@@ -213,7 +213,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -.473186344, y: -.123416901, z: 1.13879013}
+  m_LocalPosition: {x: -.473186344, y: -.123416901, z: 2.64344025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400014}
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 53, z: -6}
+  m_LocalPosition: {x: 0, y: 53, z: -87.9711609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}
@@ -322,7 +322,7 @@ BoxCollider:
   m_GameObject: {fileID: 100014}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.97000003, y: 1.76999998, z: 2.28999996}
   m_Center: {x: 0, y: -.0199999996, z: -.00999999978}
@@ -577,7 +577,7 @@ CharacterController:
   m_GameObject: {fileID: 100014}
   serializedVersion: 2
   m_Height: 1.80210912
-  m_Radius: 1.14188087
+  m_Radius: 1.38999999
   m_SlopeLimit: 45
   m_StepOffset: .300000012
   m_SkinWidth: .0799999982
