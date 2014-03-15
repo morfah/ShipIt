@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		GameObject player = GameObject.FindWithTag("Player");
 		float step = MovementSpeed * Time.deltaTime;
 		float distToPlayer = Vector3.Distance(player.transform.position, transform.position);

@@ -7,6 +7,7 @@ public class Missile : MonoBehaviour {
 
 	private float spawnedTime;
 	private string[] Tags;
+	private string Tag;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +34,8 @@ public class Missile : MonoBehaviour {
 		// Do not Explode() if the first collision is the player or enemy it self.
 		// Because the missile spawns slightly inside the player.
 		Tags = this.tag.Split(',');
-		if (collision.contacts[0].otherCollider.tag != Tags[1]){
+		Tag = collision.contacts[0].otherCollider.tag;
+		if (Tag != Tags[1]){
 			Explode();
 			return;
 		}
@@ -53,5 +55,6 @@ public class Missile : MonoBehaviour {
 		//Dissapear
 		//transform.DetachChildren();
 		Destroy(gameObject);
+		//gameObject.SetActive(false);
 	}
 }
