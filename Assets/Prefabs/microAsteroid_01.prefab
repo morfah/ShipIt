@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 95: {fileID: 9500000}
   m_Layer: 0
-  m_Name: smallAsteroid_01
+  m_Name: microAsteroid_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.6059151, y: 4.6498909, z: -48.9764404}
-  m_LocalScale: {x: 4.13555622, y: 4.13555622, z: 4.13555622}
+  m_LocalPosition: {x: 4.63434982, y: 2.08925986, z: -26.0271339}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!23 &2300000
@@ -41,7 +41,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0ab248a7493d3d2409a99a2a85f1dc0b, type: 2}
+  - {fileID: 2100000, guid: ead3aaacf0c459741bfde86add66cf99, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -56,7 +56,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 44ad5d4b02278aa4da16ef96252d79c2, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ed9f4905bdc57fd4e905d9b71d804c03, type: 3}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -65,7 +65,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 44ad5d4b02278aa4da16ef96252d79c2, type: 3}
+  m_Avatar: {fileID: 9000000, guid: ed9f4905bdc57fd4e905d9b71d804c03, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_ApplyRootMotion: 1
