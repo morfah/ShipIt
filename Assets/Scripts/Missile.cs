@@ -2,19 +2,16 @@
 using System.Collections;
 
 public class Missile : MonoBehaviour {
-	public float TimeLimit;
+	public float TimeLimit = 5f;
 	public GameObject Explosion;
 
 	private float spawnedTime;
 	private string[] Tags;
 	private string Tag;
+//	float i = 0.0f;
 
 	// Use this for initialization
 	void Start () {
-		//Default variables.
-		if (TimeLimit == 0f)
-			TimeLimit = 5f;
-
 		spawnedTime = Time.time;
 
 		// constantForce seems best for missiles.
@@ -23,17 +20,21 @@ public class Missile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//transform.Translate(Vector3.up * 40 * Time.deltaTime);
-
 		// If the missile has not collided with anything for a while it will Explode()
 		if ((Time.time - spawnedTime) > TimeLimit)
 			Explode();
 	}
 
+	void FixedUpdate () {
+//		transform.Translate(Vector3.up * (50f + i) * Time.deltaTime);
+//		i = (i + 2.0f);
+
+	}
+
 	void OnCollisionEnter(Collision collision) {
 		// Do not Explode() if the first collision is the player or enemy it self.
 		// Because the missile spawns slightly inside the player.
-		Tags = this.tag.Split(',');
+		Tags = transform.tag.Split(',');
 		Tag = collision.contacts[0].otherCollider.tag;
 		if (Tag != Tags[1]){
 			Explode();

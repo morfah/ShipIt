@@ -4,6 +4,8 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class Explosion : MonoBehaviour {
 	public AudioClip SoundFile;
+	public float radius = 50.0F;
+	public float power = 100.0F;
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +15,14 @@ public class Explosion : MonoBehaviour {
 		//Sound
 		AudioSource.PlayClipAtPoint(SoundFile, transform.position);
 
+		Vector3 explosionPos = transform.position;
+		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+		foreach (Collider hit in colliders) {
+			if (hit && hit.rigidbody && !hit.tag.Contains("Missile"))
+				hit.rigidbody.AddExplosionForce(power, explosionPos, radius);
+		}
+
 		//TODO Particles
-		//TODO https://docs.unity3d.com/Documentation/ScriptReference/Rigidbody.AddExplosionForce.html
 	}
 	
 	// Update is called once per frame

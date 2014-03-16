@@ -4,15 +4,15 @@ using System.Collections;
 public class Player : MonoBehaviour {
 	public Rigidbody PrimaryWeaponType;
 	public Rigidbody SecondaryWeaponType;
-	public double PrimaryRefireRate;
+	public double PrimaryRefireRate = 8;
 	public double SecondaryRefireRate;
 	public GameObject PrimaryWeaponOrigin;
 	public GameObject SecondaryWeaponOrigin;
 
-	public float MovementSpeed;
-	public float MouseSensitivity;
+	public float MovementSpeed = 10f;
+	public float MouseSensitivity = 10f;
 
-	private double i;
+	private double i = 0;
 	private Rigidbody bulletInstance;
 	private float missileStartTime;
 	private float timer;
@@ -27,16 +27,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Default variables.
-		if (MovementSpeed == 0f)
-			MovementSpeed = 10f;
-		if (MouseSensitivity == 0f)
-			MouseSensitivity = 10f;
-		if (PrimaryRefireRate == 0)
-		    PrimaryRefireRate = 8; // default firerate, 8 shots per second
 		Screen.lockCursor = true; // so that the mouse wont escape the window
-		i = 0;
-		this.tag = "Player";
 	}
 	
 	// Update is called once per frame

@@ -3,26 +3,18 @@ using System.Collections;
 
 //[RequireComponent(typeof(AudioSource))]
 public class ApplyDamage : MonoBehaviour {
-	public int HealthPoints;
-	public int ArmorPoints;
+	public int HealthPoints = 100;
+	public int ArmorPoints = 0;
 	public GameObject Explosion;
 //	public AudioClip HitConfirmedSound;
 
-	private int BaseMissileDamage;
-	private int BaseBulletDamage;
+	private int BaseMissileDamage = 25;
+	private int BaseBulletDamage = 10;
 	private string[] Tags;
 
 	// Use this for initialization
 	void Start () {
-		//Default variables
-		if (HealthPoints == 0)
-			HealthPoints = 100;
 
-		if (ArmorPoints == 0)
-			ArmorPoints = 0;
-
-		BaseMissileDamage = 25;
-		BaseBulletDamage = 10;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +29,7 @@ public class ApplyDamage : MonoBehaviour {
 			//Tags = contactpoint.otherCollider.tag.Split(',');
 			Tags = collision.contacts[0].otherCollider.tag.Split(',');
 			// Do not apply damage if colliding with an child object. Like a missile the player or enemy fired it self.
-			if (this.tag != Tags[1]) {
+			if (transform.tag != Tags[1]) {
 				// Damage types
 				// TODO Armor code
 				switch (Tags[0]) {

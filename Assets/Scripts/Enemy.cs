@@ -4,26 +4,19 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 	public Rigidbody PrimaryWeaponType;
 	public Rigidbody SecondaryWeaponType;
-	public double PrimaryRefireRate;
+	public double PrimaryRefireRate = 3;
 	public double SecondaryRefireRate;
 	public GameObject PrimaryWeaponOrigin;
 	public GameObject SecondaryWeaponOrigin;
 
-	public int MovementSpeed;
+	public int MovementSpeed = 10;
 
-	private double i; 
+	private double i = 0; 
 	private Rigidbody Projectile;
 
 	// Use this for initialization
 	void Start () {
-		// Default variables
-		if (MovementSpeed == 0)
-			MovementSpeed = 10;
-		if (PrimaryRefireRate == 0)
-			PrimaryRefireRate = 3;
-		i = 0;
-	
-		this.tag = "Enemy";
+
 	}
 	
 	// Update is called once per frame

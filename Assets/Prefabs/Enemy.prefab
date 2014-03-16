@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd47a5250c6f784e8e611c5d0d408b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 0
+  HealthPoints: 100
   ArmorPoints: 0
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
 --- !u!114 &11400002
