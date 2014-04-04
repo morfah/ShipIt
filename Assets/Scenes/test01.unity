@@ -1303,7 +1303,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 443802973}
-  m_LocalRotation: {x: -.34899652, y: -.694520712, z: .0555140972, w: .626706123}
+  m_LocalRotation: {x: -.34899655, y: -.694520772, z: .0555141009, w: .626706183}
   m_LocalPosition: {x: -15.5789375, y: 41.9287834, z: -65.5772781}
   m_LocalScale: {x: 3.70893002, y: 12.8326292, z: 3.70893145}
   m_Children: []
@@ -6102,6 +6102,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 1852916797}
   MovementSpeed: 15
   MouseSensitivity: 50
+  SpeedBoostMultiplier: 2
 --- !u!23 &2043326621
 Renderer:
   m_ObjectHideFlags: 0
@@ -6403,8 +6404,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400012, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
   m_PrefabInternal: {fileID: 1403622780}
   m_GameObject: {fileID: 2124226370}
-  m_LocalRotation: {x: .310068518, y: 0, z: 0, w: .95071429}
-  m_LocalPosition: {x: 0, y: 8.38071251, z: -6.02992392}
+  m_LocalRotation: {x: .213517919, y: 0, z: 0, w: .976939201}
+  m_LocalPosition: {x: 0, y: 8.38071251, z: -6.46873474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043326619}

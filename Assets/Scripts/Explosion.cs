@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(AudioSource))]
 public class Explosion : MonoBehaviour {
 	public AudioClip SoundFile;
-	public float radius = 50.0F;
-	public float power = 100.0F;
+	public float physPushRadius = 50.0F;
+	public float physPushPower = 100.0F;
+	public float damageRadius = 3F;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +17,21 @@ public class Explosion : MonoBehaviour {
 		//Sound
 		AudioSource.PlayClipAtPoint(SoundFile, transform.position);
 
+		// Explosion force (push other rigidbodies away)
 		Vector3 explosionPos = transform.position;
-		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+		Collider[] colliders = Physics.OverlapSphere(explosionPos, physPushRadius);
 		foreach (Collider hit in colliders) {
 			if (hit && hit.rigidbody && !hit.tag.Contains("Missile"))
-				hit.rigidbody.AddExplosionForce(power, explosionPos, radius);
+				hit.rigidbody.AddExplosionForce(physPushPower, explosionPos, physPushRadius);
+		}
+
+		// Splashdamage
+		colliders = Physics.OverlapSphere(explosionPos, damageRadius);
+		foreach (Collider hit in colliders) {
+			if (hit && (hit.tag == "Enemy" || hit.tag == "Player")){
+//				Debug.Log ("FOUND " + hit.tag + " WITHIN DAMAGE RADIUS!");
+				hit.SendMessage("Damage",25);
+			}
 		}
 
 		//TODO Particles
@@ -32,7 +44,9 @@ public class Explosion : MonoBehaviour {
 
 		// When the light range is low enough remove it.
 		// TODO: Is there a better way to spawn objects than to Instantiate() an existed GameObject?
-		if (light.range < 0.1 && gameObject.name.EndsWith("(Clone)"))
-			Destroy(gameObject);
+		if (light.range < 0.1 && gameObject.name.EndsWith ("(Clone)")) {
+			Destroy (gameObject);
+		}
+
 	}
 }

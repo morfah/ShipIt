@@ -6,6 +6,7 @@ public class Missile : MonoBehaviour {
 	public GameObject Explosion;
 
 	private float spawnedTime;
+//	private bool ItsOkToExplode = false;
 	private string[] Tags;
 	private string Tag;
 //	float i = 0.0f;
@@ -21,8 +22,12 @@ public class Missile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// If the missile has not collided with anything for a while it will Explode()
-		if ((Time.time - spawnedTime) > TimeLimit)
-			Explode();
+		if ((Time.time - spawnedTime) > TimeLimit) {
+			Explode ();
+		}
+//		if ((Time.time - spawnedTime) > 0.06) {
+//			ItsOkToExplode = true;
+//		}
 	}
 
 	void FixedUpdate () {
@@ -34,12 +39,16 @@ public class Missile : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		// Do not Explode() if the first collision is the player or enemy it self.
 		// Because the missile spawns slightly inside the player.
-		Tags = transform.tag.Split(',');
-		Tag = collision.contacts[0].otherCollider.tag;
-		if (Tag != Tags[1]){
-			Explode();
-			return;
-		}
+//		Tags = transform.tag.Split(',');
+//		Tag = collision.contacts[0].otherCollider.tag;
+//		if (Tag != Tags[1]){
+//			Explode();
+//			return;
+//		}
+
+//		if (ItsOkToExplode) {
+			Explode ();		
+//		}
 	}
 
 	// Explode missile

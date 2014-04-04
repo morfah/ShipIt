@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 
 	public float MovementSpeed = 10f;
 	public float MouseSensitivity = 10f;
+	public float SpeedBoostMultiplier = 2f;
 
 	private double i = 0;
 	private Rigidbody bulletInstance;
@@ -58,7 +59,7 @@ public class Player : MonoBehaviour {
 		//bool FlyDown = Input.GetButton("FlyDown");
 		Boost = Input.GetButton("Boost");
 		
-		MovementSpeedBonus = Boost ? 2.5f : 1f;
+		MovementSpeedBonus = Boost ? SpeedBoostMultiplier : 1f;
 		
 		transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
