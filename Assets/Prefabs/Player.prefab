@@ -127,6 +127,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   - 143: {fileID: 14300000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -548,6 +549,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 100010}
   MovementSpeed: 15
   MouseSensitivity: 50
+  SpeedBoostMultiplier: 2
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,6 +564,19 @@ MonoBehaviour:
   HealthPoints: 100
   ArmorPoints: 100
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2567af880af29d44bb5b5b1cf00682cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  ExpBonus: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

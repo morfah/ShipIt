@@ -71,14 +71,23 @@ public class Player : MonoBehaviour {
 	void OnGUI () {
 		int hp;
 		int ap;
+		long exp;
+		int lvl;
 		ApplyDamage[] ad;
+		Experience[] ex;
 		ad = gameObject.GetComponents<ApplyDamage>();
+		ex = gameObject.GetComponents<Experience> ();
 		hp = ad[0].HealthPoints;
 		ap = ad[0].ArmorPoints;
+		exp = ex[0].experience;
+		lvl = ex [0].level;
 		
-		GUI.Box(new Rect(Screen.width / 5, Screen.height - 30, 300, 25), 
-		          "HP: " + hp + "  Armor: " + ap + "  Exp: soon  Lvl: soon");
+		GUI.Box(new Rect(Screen.width / 5, Screen.height - 30, 150, 25), 
+		          "HP: " + hp + "  Armor: " + ap);
 
+		GUI.Box(new Rect(Screen.width / 2, Screen.height - 30, 200, 25), 
+		        "Exp: " + exp + "  Lvl: " + lvl);
+		
 		if (hp <= 0) {
 			GUI.Box(new Rect(Screen.width / 2-50, 50, 100, 20), 
 			        "\"Dead\"");

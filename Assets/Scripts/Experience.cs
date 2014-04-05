@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Experience : MonoBehaviour {
+	public long experience;
+	public int level;
 	public float ExpBonus;
 
 	// Use this for initialization
@@ -14,8 +16,9 @@ public class Experience : MonoBehaviour {
 		
 	}
 
-	void GainExp () {
+	void GainExp (long exp) {
 		// You gain experience
+		experience += exp;
 	}
 
 	void ExpToLvl () {

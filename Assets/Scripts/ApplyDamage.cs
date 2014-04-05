@@ -32,6 +32,12 @@ public class ApplyDamage : MonoBehaviour {
 		if (tag != "Player"){
 			Instantiate(Explosion, transform.position, transform.rotation);
 			Destroy(gameObject);
+			if (tag == "Enemy"){
+				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", 100);
+			}
+			else if (tag == "LootCrate"){
+				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", 50);
+			}
 		}
 		else {
 			//Debug.Log("YOU DIED! GAME OVER! STOP PLAYING!");

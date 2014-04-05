@@ -75,6 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundFile: {fileID: 8300000, guid: f6dd0efffaa138449954af8ba15c114e, type: 3}
+  physPushRadius: 50
+  physPushPower: 100
+  damageRadius: 3
+  particlesExplosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

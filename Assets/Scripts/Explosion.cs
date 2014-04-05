@@ -8,6 +8,7 @@ public class Explosion : MonoBehaviour {
 	public float physPushRadius = 50.0F;
 	public float physPushPower = 100.0F;
 	public float damageRadius = 3F;
+	public GameObject particlesExplosion;
 
 	// Use this for initialization
 	void Start () {
@@ -28,13 +29,16 @@ public class Explosion : MonoBehaviour {
 		// Splashdamage
 		colliders = Physics.OverlapSphere(explosionPos, damageRadius);
 		foreach (Collider hit in colliders) {
-			if (hit && (hit.tag == "Enemy" || hit.tag == "Player")){
+			if (hit && (hit.tag == "Enemy" || hit.tag == "Player" || hit.tag == "LootCrate")){
 //				Debug.Log ("FOUND " + hit.tag + " WITHIN DAMAGE RADIUS!");
 				hit.SendMessage("Damage",25);
 			}
 		}
 
 		//TODO Particles
+		if (particlesExplosion != null) {
+			Instantiate (particlesExplosion, transform.position, transform.rotation);
+		}
 	}
 	
 	// Update is called once per frame
