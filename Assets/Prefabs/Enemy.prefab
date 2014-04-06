@@ -469,6 +469,7 @@ MonoBehaviour:
   HealthPoints: 100
   ArmorPoints: 0
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
+  VisualExpPoint: {fileID: 100000, guid: 3af363a321c784ffc99d821297200d3b, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

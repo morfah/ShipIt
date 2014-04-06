@@ -39,6 +39,7 @@ public class Explosion : MonoBehaviour {
 		if (particlesExplosion != null) {
 			Instantiate (particlesExplosion, transform.position, transform.rotation);
 		}
+
 	}
 	
 	// Update is called once per frame

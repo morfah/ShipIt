@@ -47,6 +47,10 @@ public class Player : MonoBehaviour {
 		i += Time.deltaTime;
 
 		//TODO add Fire2 code
+
+
+//		GameObject.FindGameObjectsWithTag("ExpPoint").
+//		exppoint.transform.position(GameObject.FindGameObjectWithTag("Player"));
 	}
 
 	void FixedUpdate () {
