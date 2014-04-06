@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Experience : MonoBehaviour {
 	public long experience;
-	public int level;
-	public float ExpBonus;
+	public long level = 1;
+	public float ExpBonus = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -18,14 +18,26 @@ public class Experience : MonoBehaviour {
 
 	void GainExp (long exp) {
 		// You gain experience
-		experience += exp;
+		experience += (long) Mathf.Ceil(exp * ExpBonus);
+		CheckIfLevelChanged ();
 	}
 
-	void ExpToLvl () {
-
-	}
-
-	void LvlUp () {
+	void GainLvl (long lvl) {
 		// You level up
+		level += lvl;
+		Debug.Log ("Level up!");
+	}
+
+	void CheckIfLevelChanged () {
+		long levelBefore = level;
+		long levelsToGain = 0;
+
+		levelsToGain = (long)Mathf.Floor(experience / (100 * (levelBefore * levelBefore)));
+		
+		if (levelsToGain != 0) {
+			GainLvl(levelsToGain);
+		}
+
+
 	}
 }

@@ -35,7 +35,7 @@ public class Explosion : MonoBehaviour {
 			}
 		}
 
-		//TODO Particles
+		// Particles
 		if (particlesExplosion != null) {
 			Instantiate (particlesExplosion, transform.position, transform.rotation);
 		}

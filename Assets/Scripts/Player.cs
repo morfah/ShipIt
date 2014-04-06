@@ -72,7 +72,7 @@ public class Player : MonoBehaviour {
 		int hp;
 		int ap;
 		long exp;
-		int lvl;
+		long lvl;
 		ApplyDamage[] ad;
 		Experience[] ex;
 		ad = gameObject.GetComponents<ApplyDamage>();
