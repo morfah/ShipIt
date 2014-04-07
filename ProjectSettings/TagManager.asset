@@ -9,6 +9,7 @@ TagManager:
   - Missile,Enemy
   - LootCrate
   - ExpPoint
+  - Buoy
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
