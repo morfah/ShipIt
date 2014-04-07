@@ -25,11 +25,13 @@ public class VisualExperiencePoint : MonoBehaviour {
 			transform.position = Vector3.Lerp (transform.position, 
                                    new Vector3 (randomposX, randomposY, randomposZ), 
                                    Time.deltaTime * 1.5f);
+			transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform.position); // face the camera
 		} else if (state == 1) { // Move towards player
 			GameObject player = GameObject.FindGameObjectWithTag ("Player");
 			transform.position = Vector3.Lerp (transform.position, 
                                    player.transform.position, 
                                    Time.deltaTime * 3f);
+			transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform.position); // face the camera
 			//transform.renderer.material.color.a = Mathf.Lerp(1.0f,0.0f,Time.deltaTime * 3f);
 		} else if (state == 2) { // Destroy self
 			Destroy (gameObject);
