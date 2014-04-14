@@ -25,6 +25,7 @@ public class Player : MonoBehaviour {
 	private float mouseX;
 	private bool Fire1;
 	private bool Boost;
+	private float look;
 
 	// Use this for initialization
 	void Start () {
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour {
 		h = Input.GetAxis("Horizontal");
 		v = Input.GetAxis("Vertical");
 		mouseX = Input.GetAxis("Mouse X");
+		look = Input.GetAxis ("Look");
 		Fire1 = Input.GetButton("Fire1");
 		//bool FlyUp = Input.GetButton("FlyUp");
 		//bool FlyDown = Input.GetButton("FlyDown");
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour {
 		//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
+		transform.Rotate (Vector3.up * look * (MouseSensitivity*1.5f) * Time.deltaTime);
 	}
 
 	void OnGUI () {
