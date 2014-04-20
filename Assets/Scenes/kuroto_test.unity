@@ -1892,7 +1892,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 506832816}
   - 33: {fileID: 506832822}
-  - 65: {fileID: 506832821}
   - 23: {fileID: 506832820}
   - 114: {fileID: 506832819}
   - 114: {fileID: 506832818}
@@ -1996,19 +1995,6 @@ Renderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
---- !u!65 &506832821
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: f4c570a9c82b7494387d238c1327ca0c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1269732083}
-  m_GameObject: {fileID: 506832815}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.97000003, y: 1.76999998, z: 2.28999996}
-  m_Center: {x: 0, y: -.0199999996, z: -.00999999978}
 --- !u!33 &506832822
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2039,10 +2025,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 509524513}
   - 95: {fileID: 509524514}
+  - 114: {fileID: 509524517}
+  - 23: {fileID: 509524516}
+  - 65: {fileID: 509524515}
   m_Layer: 0
   m_Name: buoy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Buoy
+  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2082,6 +2071,53 @@ Animator:
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!65 &509524515
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136729416}
+  m_GameObject: {fileID: 509524512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 10, z: 15}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!23 &509524516
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300020, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136729416}
+  m_GameObject: {fileID: 509524512}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!114 &509524517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136729416}
+  m_GameObject: {fileID: 509524512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bc5d2373a034d868faec9225425691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &535608555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,10 +3152,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 846206997}
   - 95: {fileID: 846206998}
+  - 114: {fileID: 846207001}
+  - 23: {fileID: 846207000}
+  - 65: {fileID: 846206999}
   m_Layer: 0
   m_Name: buoy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Buoy
+  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3159,6 +3198,53 @@ Animator:
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!65 &846206999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413129931}
+  m_GameObject: {fileID: 846206996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 10, z: 15}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!23 &846207000
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300020, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413129931}
+  m_GameObject: {fileID: 846206996}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!114 &846207001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413129931}
+  m_GameObject: {fileID: 846206996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bc5d2373a034d868faec9225425691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &872421727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,10 +4247,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 1156266273}
   - 95: {fileID: 1156266274}
+  - 114: {fileID: 1156266277}
+  - 23: {fileID: 1156266276}
+  - 65: {fileID: 1156266275}
   m_Layer: 0
   m_Name: buoy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Buoy
+  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4204,6 +4293,53 @@ Animator:
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!65 &1156266275
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1525160605}
+  m_GameObject: {fileID: 1156266272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 10, z: 15}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!23 &1156266276
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300020, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1525160605}
+  m_GameObject: {fileID: 1156266272}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!114 &1156266277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 12ece0e50e27b2849a0b638b2d986e25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1525160605}
+  m_GameObject: {fileID: 1156266272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bc5d2373a034d868faec9225425691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1186376283
 GameObject:
   m_ObjectHideFlags: 0
