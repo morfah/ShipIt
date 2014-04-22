@@ -3292,6 +3292,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 1836505541}
   SecondaryWeaponOrigin: {fileID: 898696861}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!114 &906425862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3437,6 +3438,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 2078332275}
   SecondaryWeaponOrigin: {fileID: 326883048}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!114 &912366021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4526,6 +4528,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 677461016}
   SecondaryWeaponOrigin: {fileID: 2117113093}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!114 &1177117322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4741,6 +4744,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 519935146}
   SecondaryWeaponOrigin: {fileID: 1798355615}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!114 &1198695427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5235,6 +5239,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 126826799}
   SecondaryWeaponOrigin: {fileID: 991364471}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!143 &1399929995
 CharacterController:
   m_ObjectHideFlags: 0

@@ -10,18 +10,19 @@ public class Enemy : MonoBehaviour {
 	public GameObject SecondaryWeaponOrigin;
 
 	public int MovementSpeed = 10;
+	public float TurnSpeed = 5f;
 
 	private double i = 0; 
 	private Rigidbody Projectile;
+	private GameObject player;
 
 	// Use this for initialization
 	void Start () {
-
+		player = GameObject.FindWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		GameObject player = GameObject.FindWithTag("Player");
 		float step = MovementSpeed * Time.deltaTime;
 		float distToPlayer = Vector3.Distance(player.transform.position, transform.position);
 		//Vector3 pos = player.transform.position;
@@ -30,14 +31,13 @@ public class Enemy : MonoBehaviour {
 		if (distToPlayer < 45f && distToPlayer > 10f) {
 			gameObject.renderer.material.color = Color.magenta;
 			transform.position = Vector3.MoveTowards (transform.position, player.transform.position, step);
-			transform.LookAt (player.transform.position);
-			//transform.rotation = Quaternion.Lerp(transform.rotation, rot, Speed); 
+			LookAtPlayer();
 		}
 	    
 		if (distToPlayer < 30f) {
 			//TODO aim prediction... ugh...
 			Shoot ();
-			transform.LookAt (player.transform.position);
+			LookAtPlayer();
 		}
 	}
 
@@ -56,5 +56,17 @@ public class Enemy : MonoBehaviour {
 		i += Time.deltaTime;
 
 		//TODO maybe secondary fire too?
+	}
+
+	void LookAtPlayer(){
+		Vector3 moveDirection = player.transform.position - transform.position;
+		moveDirection.y = 0; 
+		moveDirection.Normalize();
+
+		float targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
+		transform.rotation = 
+			Quaternion.Slerp(transform.rotation, 
+			                 Quaternion.Euler(0, targetAngle, 0), 
+			                 TurnSpeed * Time.deltaTime);
 	}
 }
