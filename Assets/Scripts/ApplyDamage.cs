@@ -12,6 +12,9 @@ public class ApplyDamage : MonoBehaviour {
 //	private int BaseMissileDamage = 25;
 //	private int BaseBulletDamage = 10;
 	private string[] Tags;
+	private const int ENEMY_XP_REWARD = 100;
+	private const int CRATE_SMALL_XP_REWARD = 50;
+	private const int CRATE_BIG_XP_REWARD = 50;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +39,7 @@ public class ApplyDamage : MonoBehaviour {
 			Destroy(gameObject);
 			if (tag == "Enemy"){
 
-				for (int i = 0; i < 100; i++){
+				for (int i = 0; i < ENEMY_XP_REWARD; i++){
 					exppoint = Instantiate(VisualExpPoint, 
 					                       transform.position,
 					                       transform.rotation) as GameObject;
@@ -44,11 +47,11 @@ public class ApplyDamage : MonoBehaviour {
 					exppoint.AddComponent("VisualExperiencePoint");
 				}
 
-				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", 100);
+				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", ENEMY_XP_REWARD);
 			}
 			else if (tag == "LootCrate"){
 
-				for (int i = 0; i < 50; i++){
+				for (int i = 0; i < CRATE_SMALL_XP_REWARD; i++){
 					exppoint = Instantiate(VisualExpPoint, 
 					                       transform.position,
 					                       transform.rotation) as GameObject;
@@ -56,7 +59,7 @@ public class ApplyDamage : MonoBehaviour {
 					exppoint.AddComponent("VisualExperiencePoint");
 				}
 
-				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", 50);
+				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", CRATE_SMALL_XP_REWARD);
 			}
 		}
 		else {

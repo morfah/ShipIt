@@ -28,11 +28,15 @@ public class Player : MonoBehaviour {
 	private float look;
 	private bool ToggleCamera;
 	private Transform cam;
+	private ApplyDamage ad;
+	private Experience ex;
 
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true; // so that the mouse wont escape the window
 		cam = Camera.main.camera.transform;
+		ad = gameObject.GetComponent<ApplyDamage>();
+		ex = gameObject.GetComponent<Experience>();
 	}
 	
 	// Update is called once per frame
@@ -80,39 +84,26 @@ public class Player : MonoBehaviour {
 		//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 		transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
-		transform.Rotate (Vector3.up * look * (MouseSensitivity*1.5f) * Time.deltaTime);
+		transform.Rotate (Vector3.up * look * (MouseSensitivity * 1.5f) * Time.deltaTime);
 	}
 
 	void OnGUI () {
-		int hp;
-		int ap;
-		long exp;
-		long lvl;
-		ApplyDamage[] ad;
-		Experience[] ex;
-		ad = gameObject.GetComponents<ApplyDamage>();
-		ex = gameObject.GetComponents<Experience> ();
-		hp = ad[0].HealthPoints;
-		ap = ad[0].ArmorPoints;
-		exp = ex[0].experience;
-		lvl = ex [0].level;
-		
 		GUI.Box(new Rect(Screen.width / 5, Screen.height - 30, 150, 25), 
-		          "HP: " + hp + "  Armor: " + ap);
+		        "HP: " + ad.HealthPoints + "  Armor: " + ad.ArmorPoints);
 
 		GUI.Box(new Rect(Screen.width / 2, Screen.height - 30, 200, 25), 
-		        "Exp: " + exp + "  Lvl: " + lvl);
+		        ex.experience + " XP  Level " + ex.level);
 		
-		if (hp <= 0) {
+		if (ad.HealthPoints <= 0) {
 			GUI.Box(new Rect(Screen.width / 2-50, 50, 100, 20), 
-			        "\"Dead\"");
+			        "You Died");
 		}
 	}
 
 	void ToggleCameraAngle(){
-		Debug.Log (cam.localPosition);
-		Debug.Log (cam.localEulerAngles);
-		Debug.Log (cam.localScale);
+//		Debug.Log (cam.localPosition);
+//		Debug.Log (cam.localEulerAngles);
+//		Debug.Log (cam.localScale);
 
 //		(0.0, 8.4, -6.5)
 //		(24.7, 0.0, 0.0)
