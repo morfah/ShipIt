@@ -590,15 +590,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ea370c1021bacc44b9a4244a695a5dbe, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.16485357
+      value: 19.1183739
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea370c1021bacc44b9a4244a695a5dbe, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .118570328
+      value: .223241806
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea370c1021bacc44b9a4244a695a5dbe, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -16.0141373
+      value: -18.5070133
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ea370c1021bacc44b9a4244a695a5dbe, type: 2}
       propertyPath: m_LocalRotation.x
@@ -854,7 +854,7 @@ Transform:
   m_PrefabInternal: {fileID: 109351774}
   m_GameObject: {fileID: 155762222}
   m_LocalRotation: {x: .331480294, y: .0546069629, z: .077608563, w: .938677728}
-  m_LocalPosition: {x: 6.16485357, y: .118570328, z: -16.0141373}
+  m_LocalPosition: {x: 19.1183739, y: .223241806, z: -18.5070133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2465,6 +2465,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 881620267}
   SecondaryWeaponOrigin: {fileID: 1201181306}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!114 &602895126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3584,6 +3585,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 2016409134}
   SecondaryWeaponOrigin: {fileID: 2052843248}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!114 &918811351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7228,6 +7230,7 @@ MonoBehaviour:
   PrimaryWeaponOrigin: {fileID: 11146932}
   SecondaryWeaponOrigin: {fileID: 1907829567}
   MovementSpeed: 10
+  TurnSpeed: 5
 --- !u!114 &2125137769
 MonoBehaviour:
   m_ObjectHideFlags: 0
