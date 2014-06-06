@@ -74,7 +74,9 @@ public class Experience : MonoBehaviour {
 		else {
 			int ExpTarget = ExperienceTargets [level]; // level+1 is wrong here
 			int ExpThisLevel = ExperienceTargets [level-1];
-			return (((float)experience - (float)ExpThisLevel) / ((float)ExpTarget - (float)ExpThisLevel));
+			float Percent = (((float)experience - (float)ExpThisLevel) / ((float)ExpTarget - (float)ExpThisLevel));
+			//Debug.Log (Percent);
+			return Percent;
 		}
 	}
 
