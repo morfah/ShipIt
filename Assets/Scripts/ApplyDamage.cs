@@ -12,8 +12,8 @@ public class ApplyDamage : MonoBehaviour {
 //	private int BaseMissileDamage = 25;
 //	private int BaseBulletDamage = 10;
 	private string[] Tags;
-	private const int ENEMY_XP_REWARD = 100;
-	private const int CRATE_SMALL_XP_REWARD = 50;
+	private const int ENEMY_XP_REWARD = 75;
+	private const int CRATE_SMALL_XP_REWARD = 25;
 	private const int CRATE_BIG_XP_REWARD = 50;
 
 	// Use this for initialization

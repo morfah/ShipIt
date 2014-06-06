@@ -2,13 +2,31 @@
 using System.Collections;
 
 public class Experience : MonoBehaviour {
-	public long experience;
-	public long level = 1;
-	public float ExpBonus = 1;
+	private int experience = 0;
+	private int level = 1;
+	public float ExpBonus = 1.0f;
+
+	private static int[] ExperienceTargets = new int[] {
+		0, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200,
+		102400, 204800, 409600
+	};
+	private static int LEVELCAP = ExperienceTargets.Length;
+	private static int EXPERIENCECAP = ExperienceTargets[LEVELCAP - 1];
 
 	// Use this for initialization
 	void Start () {
-		
+		// Get Experience and Level from Playerprefs.
+		int LoadExperience = PlayerPrefs.GetInt ("Experience");
+		int LoadLevel = PlayerPrefs.GetInt ("Level");
+
+		if (LoadExperience > 0)
+			experience = LoadExperience;
+		if (LoadLevel > 0)
+			level = LoadLevel;
+
+
+		// Adjust Level (aka Level up or down because experience target changes between versions)
+		AdjustLevel(CalculateLevel()); 
 	}
 	
 	// Update is called once per frame
@@ -16,57 +34,55 @@ public class Experience : MonoBehaviour {
 		
 	}
 
-	void GainExp (long exp) {
+	void GainExp (int exp) {
 		// You gain experience
-		experience += (long) Mathf.Ceil(exp * ExpBonus);
-		CheckIfLevelChanged ();
+		experience += (int) Mathf.Ceil(exp * ExpBonus);
+
+		if (experience >= EXPERIENCECAP)
+			experience = EXPERIENCECAP;
+
+		PlayerPrefs.SetInt ("Experience", experience); // Save new Experience value
+
+		AdjustLevel(CalculateLevel()); // Adjust Level (aka Level up)
 	}
 
-	void GainLvl (long lvl) {
-		// You level up
-		level += lvl;
+	void AdjustLevel (int lvl) {
+		// Adjust Level
+		level = lvl;
+
+		if (level >= LEVELCAP)
+			level = LEVELCAP;
+
+		PlayerPrefs.SetInt ("Level", level); // Save new Level value
 		Debug.Log ("You gained level " + level + "!");
 	}
 
-	void CheckIfLevelChanged () {
-		long levelBefore = level;
-		long levelsToGain = 0;
-
-		/*
-		 * XP0    Lvl1
-		 * XP150  Lvl2
-		 * XP300  Lvl3
-		 * XP450  Lvl4
-		 * XP600  Lvl5
-		 * 
-		 * XP0        Lvl1
-		 * XP100      Lvl2
-		 * XP250      Lvl3
-		 * XP375      Lvl4
-		 * XP562.5    Lvl5
-		 * XP843.75   Lvl6
-		 * XP1265.625 Lvl7
-
-		 */
-
-
-//		for (int i = 3; i <= 10; i++) {
-//			Debug.Log ("Level" + i + " = XP" + ((100 * i-1) * 1.5f));
-//		}
-
-//		for (int i = 0; i < 10000; i++){
-//			Debug.Log (i + "XP = Lvl" + (long)Mathf.Floor(i / (100 * ( * 1.5f)));
-//		}
-
-
-
-
-		levelsToGain = (long)Mathf.Floor(experience / (100 * (levelBefore * levelBefore)));
-		
-		if (levelsToGain != 0) {
-			GainLvl(levelsToGain);
+	int CalculateLevel () {
+		for (int i = LEVELCAP; i >= 1; i--) {
+			if (experience >= ExperienceTargets[i-1])
+				return i;
 		}
 
+		// Fix compile error
+		return level;
+	}
 
+	// Returns a percentage to next level
+	public float PercentToNextLevel() {
+		if (level + 1 > LEVELCAP)
+			return 1.0f;
+		else {
+			int ExpTarget = ExperienceTargets [level]; // level+1 is wrong here
+			int ExpThisLevel = ExperienceTargets [level-1];
+			return (((float)experience - (float)ExpThisLevel) / ((float)ExpTarget - (float)ExpThisLevel));
+		}
+	}
+
+	public int GetExperience() {
+		return experience;
+	}
+
+	public int GetLevel() {
+		return level;
 	}
 }

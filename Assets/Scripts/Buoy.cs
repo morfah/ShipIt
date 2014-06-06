@@ -31,6 +31,7 @@ public class Buoy : MonoBehaviour {
 	void OnTriggerEnter (Collider collider){
 		if (collider.tag == "Player") {
 			BuoyActive = true;
+			PlayerPrefs.Save(); // Save
 			Debug.Log ("Player went inside the Buoy trigger!");
 		}
 	}
@@ -38,6 +39,7 @@ public class Buoy : MonoBehaviour {
 	void OnTriggerExit (Collider collider){
 		if (collider.tag == "Player"){
 			BuoyActive = false;
+			PlayerPrefs.Save(); // Save
 			Debug.Log ("Player went outside the Buoy trigger!");
 		}
 	}
