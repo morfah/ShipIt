@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour {
 	public int MovementSpeed = 10;
 	public float TurnSpeed = 5f;
 
+	public int Level = 1;
+
 	private double i = 0; 
 	private Rigidbody Projectile;
 	private GameObject player;
@@ -48,7 +50,9 @@ public class Enemy : MonoBehaviour {
 			Projectile = Instantiate(PrimaryWeaponType,
 			            PrimaryWeaponOrigin.transform.position, 
 			            PrimaryWeaponOrigin.transform.rotation) as Rigidbody;
-			Projectile.tag = PrimaryWeaponType.tag + ",Enemy";
+			Projectile.tag = PrimaryWeaponType.tag;
+			Projectile.GetComponent<Missile>().Friendly = false;
+			Projectile.GetComponent<Missile>().Level = Level;
 			i = 0;
 		}
 		else if (i > PrimaryRefireRate)
@@ -68,5 +72,9 @@ public class Enemy : MonoBehaviour {
 			Quaternion.Slerp(transform.rotation, 
 			                 Quaternion.Euler(0, targetAngle, 0), 
 			                 TurnSpeed * Time.deltaTime);
+	}
+
+	public int GetEnemyLevel () {
+		return Level;
 	}
 }

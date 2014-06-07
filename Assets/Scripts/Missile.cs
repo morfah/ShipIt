@@ -4,6 +4,8 @@ using System.Collections;
 public class Missile : MonoBehaviour {
 	public float TimeLimit = 5f;
 	public GameObject Explosion;
+	public int Level = 1;
+	public bool Friendly = true;
 
 	private float spawnedTime;
 //	private bool ItsOkToExplode = false;
@@ -11,12 +13,20 @@ public class Missile : MonoBehaviour {
 	private string Tag;
 //	float i = 0.0f;
 
+
+
 	// Use this for initialization
 	void Start () {
 		spawnedTime = Time.time;
 
 		// constantForce seems best for missiles.
 		rigidbody.constantForce.force = transform.up * 500;
+
+		// Color
+		if (Friendly)
+			gameObject.renderer.material.color = Color.green;
+		else
+			gameObject.renderer.material.color = Color.red;
 	}
 	
 	// Update is called once per frame
@@ -60,7 +70,9 @@ public class Missile : MonoBehaviour {
 			return;
 
 		//See Explosion.cs for all the Explosion logic
-		Instantiate(Explosion, transform.position, transform.rotation);
+		GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation) as GameObject;
+		explosion.GetComponent<Explosion>().Level = Level;
+		explosion.GetComponent<Explosion>().Friendly = Friendly;
 
 		//Dissapear
 		//transform.DetachChildren();

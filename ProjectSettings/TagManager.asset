@@ -5,9 +5,8 @@ TagManager:
   tags:
   - Enemy
   - Missile
-  - Missile,Player
-  - Missile,Enemy
-  - LootCrate
+  - SmallLootCrate
+  - LargeLootCrate
   - ExpPoint
   - Buoy
   - 

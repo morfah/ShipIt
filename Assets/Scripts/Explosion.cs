@@ -9,6 +9,10 @@ public class Explosion : MonoBehaviour {
 	public float physPushPower = 100.0F;
 	public float damageRadius = 3F;
 	public GameObject particlesExplosion;
+	public int Level = 1;
+	public bool Friendly = true;
+
+	private const float BASE_EXPLOSION_DAMAGE = 25.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -29,9 +33,41 @@ public class Explosion : MonoBehaviour {
 		// Splashdamage
 		colliders = Physics.OverlapSphere(explosionPos, damageRadius);
 		foreach (Collider hit in colliders) {
-			if (hit && (hit.tag == "Enemy" || hit.tag == "Player" || hit.tag == "LootCrate")){
-//				Debug.Log ("FOUND " + hit.tag + " WITHIN DAMAGE RADIUS!");
-				hit.SendMessage("Damage",25);
+			//Debug.Log (tag + " hit " + hit.tag);
+			//Debug.Log ("Is explosion friendly? " + Friendly + " Level of Explosion? " + Level);
+			if (hit){
+				// A Explosion hit Lootcrate
+				if (hit.tag == "SmallLootCrate" || hit.tag == "LargeLootCrate") {
+					hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
+				}
+
+				// Friendly Explosion caused by a friendly missile.
+				if (Friendly) {
+					// Hit Enemy
+					if (hit.tag == "Enemy") {
+						Enemy enemy = hit.GetComponent<Enemy>();
+						float Damage = BASE_EXPLOSION_DAMAGE * ((float)Level / (float)enemy.GetEnemyLevel());
+						hit.SendMessage("Damage", Damage);
+					}
+					// Hit Player
+					else if (hit.tag == "Player") {
+						hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
+					}
+				}
+
+				// Enemy explosion caused by an enemy missile.
+				else {
+					// Hit Enemy
+					if (hit.tag == "Enemy") {
+						hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
+					}
+					// Hit Player
+					else if (hit.tag == "Player") {
+						Experience playerxp = hit.GetComponent<Experience>();
+						float Damage = BASE_EXPLOSION_DAMAGE * ((float)Level / (float)playerxp.GetLevel());
+						hit.SendMessage("Damage", Damage);
+					}
+				}
 			}
 		}
 

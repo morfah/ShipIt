@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: largeCrate_01
-  m_TagString: LootCrate
+  m_TagString: LargeLootCrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

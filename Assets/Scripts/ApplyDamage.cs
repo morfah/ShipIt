@@ -11,10 +11,9 @@ public class ApplyDamage : MonoBehaviour {
 
 //	private int BaseMissileDamage = 25;
 //	private int BaseBulletDamage = 10;
-	private string[] Tags;
-	private const int ENEMY_XP_REWARD = 75;
-	private const int CRATE_SMALL_XP_REWARD = 25;
-	private const int CRATE_BIG_XP_REWARD = 50;
+	private const float BASE_ENEMY_XP_REWARD = 75.0f;
+	private const float BASE_CRATE_SMALL_XP_REWARD = 25.0f;
+	private const float BASE_CRATE_LARGE_XP_REWARD = 50.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -28,18 +27,26 @@ public class ApplyDamage : MonoBehaviour {
 		}
 	}
 
-	void Damage(int dmg) {
-		HealthPoints -= dmg;
+	void Damage(float dmg) {
+		HealthPoints -= (int)dmg;
 	}
 	
 	void Die() {
 		if (tag != "Player"){
 			GameObject exppoint;
 			Instantiate(Explosion, transform.position, transform.rotation);
-			Destroy(gameObject);
+
+			// Give Experience
 			if (tag == "Enemy"){
+				Enemy enemy = gameObject.GetComponent<Enemy>();
+				Experience playerxp = GameObject.FindGameObjectWithTag("Player").GetComponent<Experience>();
+				// Give experience reward based on player and enemy level
+				float ExperienceReward = BASE_ENEMY_XP_REWARD * ((float)enemy.GetEnemyLevel() / (float)playerxp.GetLevel());
+				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", ExperienceReward);
+			}
+			else if (tag == "SmallLootCrate"){
 
-				for (int i = 0; i < ENEMY_XP_REWARD; i++){
+				for (int i = 0; i < BASE_CRATE_SMALL_XP_REWARD; i++){
 					exppoint = Instantiate(VisualExpPoint, 
 					                       transform.position,
 					                       transform.rotation) as GameObject;
@@ -47,24 +54,25 @@ public class ApplyDamage : MonoBehaviour {
 					exppoint.AddComponent("VisualExperiencePoint");
 				}
 
-				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", ENEMY_XP_REWARD);
+				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", BASE_CRATE_SMALL_XP_REWARD);
 			}
-			else if (tag == "LootCrate"){
-
-				for (int i = 0; i < CRATE_SMALL_XP_REWARD; i++){
+			else if (tag == "LargeLootCrate"){
+				
+				for (int i = 0; i < BASE_CRATE_LARGE_XP_REWARD; i++){
 					exppoint = Instantiate(VisualExpPoint, 
 					                       transform.position,
 					                       transform.rotation) as GameObject;
 					exppoint.tag = "ExpPoint";
 					exppoint.AddComponent("VisualExperiencePoint");
 				}
-
-				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", CRATE_SMALL_XP_REWARD);
+				
+				GameObject.FindGameObjectWithTag("Player").SendMessage("GainExp", BASE_CRATE_LARGE_XP_REWARD);
 			}
-		}
-		else {
-			//Debug.Log("YOU DIED! GAME OVER! STOP PLAYING!");
-		}
 
+			Destroy(gameObject); // remove the object that died
+		}
+		else{
+			// Player death code here
+		}
 	}
 }

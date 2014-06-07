@@ -43,7 +43,9 @@ public class Player : MonoBehaviour {
 			Projectile = Instantiate(PrimaryWeaponType,
 			            PrimaryWeaponOrigin.transform.position, 
 			            PrimaryWeaponOrigin.transform.rotation) as Rigidbody;
-			Projectile.tag = PrimaryWeaponType.tag + ",Player";
+			Projectile.tag = PrimaryWeaponType.tag;
+			Projectile.GetComponent<Missile>().Friendly = true;
+			Projectile.GetComponent<Missile>().Level = gameObject.GetComponent<Experience>().GetLevel();
 			i = 0;
 		}
 	        else if (i > PrimaryRefireRate)

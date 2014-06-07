@@ -196,7 +196,7 @@ GameObject:
   - 114: {fileID: 22010727}
   m_Layer: 0
   m_Name: largeCrate_01
-  m_TagString: LootCrate
+  m_TagString: LargeLootCrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,7 +642,7 @@ GameObject:
   - 114: {fileID: 181563530}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: LootCrate
+  m_TagString: SmallLootCrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2088,19 +2088,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d46596b4a482362428073c483bd28255, type: 2}
       propertyPath: m_LocalRotation.x
-      value: .327923864
+      value: .327923894
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d46596b4a482362428073c483bd28255, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.51383239
+      value: -.51383245
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d46596b4a482362428073c483bd28255, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .526323915
+      value: .526323974
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d46596b4a482362428073c483bd28255, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.592811406
+      value: -.592811465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d46596b4a482362428073c483bd28255, type: 2}
@@ -2451,6 +2451,10 @@ Prefab:
     - target: {fileID: 400012, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
       propertyPath: m_LocalRotation.w
       value: -.854078174
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
+      propertyPath: Level
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
@@ -3159,6 +3163,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 898696861}
   MovementSpeed: 10
   TurnSpeed: 5
+  Level: 1
 --- !u!114 &906425862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3305,6 +3310,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 326883048}
   MovementSpeed: 10
   TurnSpeed: 5
+  Level: 1
 --- !u!114 &912366021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4343,6 +4349,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 2117113093}
   MovementSpeed: 10
   TurnSpeed: 5
+  Level: 10
 --- !u!114 &1177117322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4559,6 +4566,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 1798355615}
   MovementSpeed: 10
   TurnSpeed: 5
+  Level: 1
 --- !u!114 &1198695427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5054,6 +5062,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 991364471}
   MovementSpeed: 10
   TurnSpeed: 5
+  Level: 1
 --- !u!143 &1399929995
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7083,7 +7092,7 @@ GameObject:
   - 65: {fileID: 2080690443}
   m_Layer: 0
   m_Name: smallCrate_01
-  m_TagString: LootCrate
+  m_TagString: SmallLootCrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7184,7 +7193,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d46596b4a482362428073c483bd28255, type: 2}
   m_PrefabInternal: {fileID: 478840635}
   m_GameObject: {fileID: 2080690442}
-  m_LocalRotation: {x: .327923894, y: -.51383245, z: .526323974, w: -.592811465}
+  m_LocalRotation: {x: .327923864, y: -.51383239, z: .526323915, w: -.592811406}
   m_LocalPosition: {x: 91.181694, y: 53, z: 23.9749336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

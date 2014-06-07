@@ -2,24 +2,24 @@
 using System.Collections;
 
 public class Experience : MonoBehaviour {
-	private int experience = 0;
+	private float experience = 0;
 	private int level = 1;
 	public float ExpBonus = 1.0f;
 
-	private static int[] ExperienceTargets = new int[] {
+	private static float[] ExperienceTargets = new float[] {
 		0, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200,
 		102400, 204800, 409600
 	};
 	private static int LEVELCAP = ExperienceTargets.Length;
-	private static int EXPERIENCECAP = ExperienceTargets[LEVELCAP - 1];
+	private static float EXPERIENCECAP = ExperienceTargets[LEVELCAP - 1];
 
 	// Use this for initialization
 	void Start () {
 		// Get Experience and Level from Playerprefs.
-		int LoadExperience = PlayerPrefs.GetInt ("Experience");
+		float LoadExperience = PlayerPrefs.GetFloat ("Experience");
 		int LoadLevel = PlayerPrefs.GetInt ("Level");
 
-		if (LoadExperience > 0)
+		if (LoadExperience > 0.0f)
 			experience = LoadExperience;
 		if (LoadLevel > 0)
 			level = LoadLevel;
@@ -34,14 +34,14 @@ public class Experience : MonoBehaviour {
 		
 	}
 
-	void GainExp (int exp) {
+	void GainExp (float exp) {
 		// You gain experience
-		experience += (int) Mathf.Ceil(exp * ExpBonus);
+		experience +=  Mathf.Ceil(exp * ExpBonus);
 
 		if (experience >= EXPERIENCECAP)
 			experience = EXPERIENCECAP;
 
-		PlayerPrefs.SetInt ("Experience", experience); // Save new Experience value
+		PlayerPrefs.SetFloat ("Experience", experience); // Save new Experience value
 
 		AdjustLevel(CalculateLevel()); // Adjust Level (aka Level up)
 	}
@@ -72,15 +72,15 @@ public class Experience : MonoBehaviour {
 		if (level + 1 > LEVELCAP)
 			return 1.0f;
 		else {
-			int ExpTarget = ExperienceTargets [level]; // level+1 is wrong here
-			int ExpThisLevel = ExperienceTargets [level-1];
-			float Percent = (((float)experience - (float)ExpThisLevel) / ((float)ExpTarget - (float)ExpThisLevel));
+			float ExpTarget = ExperienceTargets [level]; // level+1 is wrong here
+			float ExpThisLevel = ExperienceTargets [level-1];
+			float Percent = ((experience - ExpThisLevel) / (ExpTarget - ExpThisLevel));
 			//Debug.Log (Percent);
 			return Percent;
 		}
 	}
 
-	public int GetExperience() {
+	public float GetExperience() {
 		return experience;
 	}
 
