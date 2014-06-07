@@ -11,7 +11,7 @@ GameObject:
   - 108: {fileID: 10800000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Explosion2
+  m_Name: MissileExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.77718067, y: 83.3905182, z: -17.0439243}
+  m_LocalPosition: {x: -9.927845, y: 51.9907761, z: -211.201492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37,9 +37,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: .95588237, g: .551328897, b: .203827888, a: 1}
-  m_Intensity: 4.05000019
-  m_Range: 17.1817474
+  m_Color: {r: .926470578, g: .541693985, b: .211180776, a: 1}
+  m_Intensity: 3.68000007
+  m_Range: 10.2330608
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -74,11 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1126c51fb8ad4b439d84ae5db16ba26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundFile: {fileID: 8300000, guid: f6dd0efffaa138449954af8ba15c114e, type: 3}
+  SoundFile: {fileID: 8300000, guid: ade7f4fc22557444f89af3cb6eed1acd, type: 3}
   physPushRadius: 50
   physPushPower: 100
   damageRadius: 3
-  particlesExplosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
+  particlesExplosion: {fileID: 0}
+  Level: 1
+  Friendly: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

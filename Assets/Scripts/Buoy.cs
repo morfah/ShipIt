@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Buoy : MonoBehaviour {
 	GameObject player;
-	ApplyDamage[] ad;
+	ApplyDamage ad;
 	bool BuoyActive = false;
 	int HealthPool = 100;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
-		ad = player.GetComponents<ApplyDamage>();
+		ad = player.GetComponent<ApplyDamage>();
 	}
 	
 	// Update is called once per frame
@@ -23,7 +23,7 @@ public class Buoy : MonoBehaviour {
 			return;
 
 		if (BuoyActive) {
-			ad[0].HealthPoints++;
+			ad.HealthPoints++;
 			HealthPool--;
 		}
 	}
