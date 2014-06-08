@@ -8,7 +8,7 @@ public class Experience : MonoBehaviour {
 
 	private static float[] ExperienceTargets = new float[] {
 		0, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200,
-		102400, 204800, 409600
+		102400, 204800, 409600, 819200
 	};
 	private static int LEVELCAP = ExperienceTargets.Length;
 	private static float EXPERIENCECAP = ExperienceTargets[LEVELCAP - 1];
