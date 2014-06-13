@@ -4410,6 +4410,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
+      propertyPath: ExpBonus
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4c570a9c82b7494387d238c1327ca0c, type: 2}
   m_RootGameObject: {fileID: 2043326618}
@@ -7216,6 +7220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc5df507415246ceb460a74b5829c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProgressbarTexture: {fileID: 2800000, guid: 3d0566b0b1e904e42b20e102fde5145a, type: 3}
 --- !u!33 &2043326623
 MeshFilter:
   m_ObjectHideFlags: 0

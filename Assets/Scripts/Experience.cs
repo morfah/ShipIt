@@ -6,12 +6,12 @@ public class Experience : MonoBehaviour {
 	private int level = 1;
 	public float ExpBonus = 1.0f;
 
-	private static float[] ExperienceTargets = new float[] {
+	public static float[] ExperienceTargets = new float[] {
 		0, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200,
 		102400, 204800, 409600, 819200
 	};
-	private static int LEVELCAP = ExperienceTargets.Length;
-	private static float EXPERIENCECAP = ExperienceTargets[LEVELCAP - 1];
+	public static int LEVELCAP = ExperienceTargets.Length;
+	public static float EXPERIENCECAP = ExperienceTargets[LEVELCAP - 1];
 
 	// Use this for initialization
 	void Start () {

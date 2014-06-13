@@ -577,6 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc5df507415246ceb460a74b5829c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProgressbarTexture: {fileID: 2800000, guid: 3d0566b0b1e904e42b20e102fde5145a, type: 3}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
