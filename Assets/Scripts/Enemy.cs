@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour {
 	private Rigidbody Projectile;
 	private GameObject player;
 
+	private Vector3 raycastOrigin;
+	private Vector3 raycastDirection;
+	private RaycastHit raycastHit;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindWithTag("Player");
@@ -25,21 +29,42 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		float step = MovementSpeed * Time.deltaTime;
 		float distToPlayer = Vector3.Distance(player.transform.position, transform.position);
-		//Vector3 pos = player.transform.position;
-		//Quaternion rot = Quaternion.LookRotation(pos);
+		int layerMask = 1 << 8;
+		layerMask = ~ layerMask; // Ignore the Missile layer when raycasting
+
 		gameObject.renderer.material.color = Color.yellow;
-		if (distToPlayer < 45f && distToPlayer > 10f) {
-			gameObject.renderer.material.color = Color.magenta;
-			transform.position = Vector3.MoveTowards (transform.position, player.transform.position, step);
-			LookAtPlayer();
+
+		raycastOrigin = transform.position;
+		raycastDirection = player.transform.position - transform.position;
+		raycastDirection.y = 0; 
+		raycastDirection.Normalize();
+
+		// Check if the enemy can see the Player
+		if (Physics.Raycast(raycastOrigin, raycastDirection, out raycastHit, 100, layerMask)){
+
+			Debug.DrawLine (raycastOrigin, raycastHit.point, Color.cyan, 1.0f, true);
+
+			if (raycastHit.transform.tag == "Player") {
+				if (distToPlayer > 10f) {
+					MoveToPlayer();
+					LookAtPlayer();
+				}
+			}
+
 		}
-	    
-		if (distToPlayer < 30f) {
-			//TODO aim prediction... ugh...
-			Shoot ();
-			LookAtPlayer();
+
+		// Check if the enemy gun can "see" the Player
+		raycastOrigin = PrimaryWeaponOrigin.transform.position;
+		if (Physics.Raycast(raycastOrigin, raycastDirection, out raycastHit, 50, layerMask)){
+			
+			Debug.DrawLine (raycastOrigin, raycastHit.point, Color.red, 1.0f, true);
+
+			if (raycastHit.transform.tag == "Player") {
+				Shoot ();
+				LookAtPlayer();
+			}
+
 		}
 	}
 
@@ -72,6 +97,12 @@ public class Enemy : MonoBehaviour {
 			Quaternion.Slerp(transform.rotation, 
 			                 Quaternion.Euler(0, targetAngle, 0), 
 			                 TurnSpeed * Time.deltaTime);
+	}
+
+	void MoveToPlayer() {
+		float step = MovementSpeed * Time.deltaTime;
+		gameObject.renderer.material.color = Color.magenta;
+		transform.position = Vector3.MoveTowards (transform.position, player.transform.position, step);
 	}
 
 	public int GetEnemyLevel () {

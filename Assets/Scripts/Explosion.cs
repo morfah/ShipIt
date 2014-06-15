@@ -9,7 +9,9 @@ public class Explosion : MonoBehaviour {
 	public float physPushPower = 100.0F;
 	public float damageRadius = 3F;
 	public GameObject particlesExplosion;
+	[HideInInspector]
 	public int Level = 1;
+	[HideInInspector]
 	public bool Friendly = true;
 
 	private const float BASE_EXPLOSION_DAMAGE = 25.0f;

@@ -3,14 +3,15 @@ using System.Collections;
 
 public class Buoy : MonoBehaviour {
 	GameObject player;
-	ApplyDamage ad;
+	ApplyDamage hp;
 	bool BuoyActive = false;
 	int HealthPool = 100;
+	int ArmorPool = 100;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
-		ad = player.GetComponent<ApplyDamage>();
+		hp = player.GetComponent<ApplyDamage>();
 	}
 	
 	// Update is called once per frame
@@ -23,8 +24,19 @@ public class Buoy : MonoBehaviour {
 			return;
 
 		if (BuoyActive) {
-			ad.HealthPoints++;
-			HealthPool--;
+
+			// Repair hull up to 100%
+			if (hp.HealthPoints < 100) {
+				hp.HealthPoints++;
+				HealthPool--;
+			}
+
+			// Recharge shield up to 100%
+			if (hp.ArmorPoints < 100) {
+				hp.ArmorPoints++;
+				ArmorPool--;
+			}
+
 		}
 	}
 

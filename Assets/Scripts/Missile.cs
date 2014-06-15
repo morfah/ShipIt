@@ -4,16 +4,14 @@ using System.Collections;
 public class Missile : MonoBehaviour {
 	public float TimeLimit = 5f;
 	public GameObject Explosion;
+	[HideInInspector]
 	public int Level = 1;
+	[HideInInspector]
 	public bool Friendly = true;
 
 	private float spawnedTime;
-//	private bool ItsOkToExplode = false;
 	private string[] Tags;
 	private string Tag;
-//	float i = 0.0f;
-
-
 
 	// Use this for initialization
 	void Start () {
@@ -35,30 +33,14 @@ public class Missile : MonoBehaviour {
 		if ((Time.time - spawnedTime) > TimeLimit) {
 			Explode ();
 		}
-//		if ((Time.time - spawnedTime) > 0.06) {
-//			ItsOkToExplode = true;
-//		}
 	}
 
 	void FixedUpdate () {
-//		transform.Translate(Vector3.up * (50f + i) * Time.deltaTime);
-//		i = (i + 2.0f);
 
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		// Do not Explode() if the first collision is the player or enemy it self.
-		// Because the missile spawns slightly inside the player.
-//		Tags = transform.tag.Split(',');
-//		Tag = collision.contacts[0].otherCollider.tag;
-//		if (Tag != Tags[1]){
-//			Explode();
-//			return;
-//		}
-
-//		if (ItsOkToExplode) {
 			Explode ();		
-//		}
 	}
 
 	// Explode missile
@@ -75,8 +57,6 @@ public class Missile : MonoBehaviour {
 		explosion.GetComponent<Explosion>().Friendly = Friendly;
 
 		//Dissapear
-		//transform.DetachChildren();
 		Destroy(gameObject);
-		//gameObject.SetActive(false);
 	}
 }

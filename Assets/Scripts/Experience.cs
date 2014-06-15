@@ -24,7 +24,6 @@ public class Experience : MonoBehaviour {
 		if (LoadLevel > 0)
 			level = LoadLevel;
 
-
 		// Adjust Level (aka Level up or down because experience target changes between versions)
 		AdjustLevel(CalculateLevel()); 
 	}
@@ -34,7 +33,7 @@ public class Experience : MonoBehaviour {
 		
 	}
 
-	void GainExp (float exp) {
+	public void GainExp (float exp) {
 		// You gain experience
 		experience +=  Mathf.Ceil(exp * ExpBonus);
 
@@ -54,7 +53,7 @@ public class Experience : MonoBehaviour {
 			level = LEVELCAP;
 
 		PlayerPrefs.SetInt ("Level", level); // Save new Level value
-		Debug.Log ("You gained level " + level + "!");
+//		Debug.Log ("You gained level " + level + "!");
 	}
 
 	int CalculateLevel () {

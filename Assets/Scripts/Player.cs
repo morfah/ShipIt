@@ -5,7 +5,7 @@ public class Player : MonoBehaviour {
 	public Rigidbody PrimaryWeaponType;
 	public Rigidbody SecondaryWeaponType;
 	public double PrimaryRefireRate = 8;
-	public double SecondaryRefireRate;
+	public double SecondaryRefireRate = 2;
 	public GameObject PrimaryWeaponOrigin;
 	public GameObject SecondaryWeaponOrigin;
 
@@ -13,21 +13,28 @@ public class Player : MonoBehaviour {
 	public float MouseSensitivity = 10f;
 	public float SpeedBoostMultiplier = 2f;
 
-	private double i = 0;
+	private double i1 = 0;
+//	private double i2 = 0;
 	private Rigidbody bulletInstance;
 	private float missileStartTime;
 	private float timer;
 	private float MovementSpeedBonus;
 	private Rigidbody Projectile;
+//	private Rigidbody Projectile2;
 
 	private float h;
 	private float v;
 	private float mouseX;
 	private bool Fire1;
+//	private bool Fire2;
 	private bool Boost;
 	private float look;
 	private bool ToggleCamera;
 	private Transform cam;
+
+//	private Vector3 HitscanOrigin;
+//	private Vector3 HitscanDirection;
+//	private RaycastHit HitscanHit;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +45,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Fire1 update
-		if (Fire1 && i >= (1 / PrimaryRefireRate))
+		if (Fire1 && i1 >= (1 / PrimaryRefireRate))
 		{
 			Projectile = Instantiate(PrimaryWeaponType,
 			            PrimaryWeaponOrigin.transform.position, 
@@ -46,21 +53,31 @@ public class Player : MonoBehaviour {
 			Projectile.tag = PrimaryWeaponType.tag;
 			Projectile.GetComponent<Missile>().Friendly = true;
 			Projectile.GetComponent<Missile>().Level = gameObject.GetComponent<Experience>().GetLevel();
-			i = 0;
+			i1 = 0;
 		}
-	        else if (i > PrimaryRefireRate)
-	            i = 0;
-		i += Time.deltaTime;
+	        else if (i1 > PrimaryRefireRate)
+	            i1 = 0;
+		i1 += Time.deltaTime;
 
-		//TODO add Fire2 code
+		// Fire2 update
+//		if (Fire1 && i2 >= (1 / SecondaryRefireRate))
+//		{
+//			HitscanDirection = transform.TransformDirection(Vector3.forward);
+//			HitscanOrigin = SecondaryWeaponOrigin.transform.position;
+//
+//			if (Physics.Raycast(HitscanOrigin, HitscanDirection, out HitscanHit, 300.0f)){
+//				Debug.DrawLine (HitscanOrigin, HitscanHit.point, Color.cyan, 1.0f, true);
+//			}
+//			i2 = 0;
+//		}
+//		else if (i2 > SecondaryRefireRate)
+//			i2 = 0;
+//		i2 += Time.deltaTime;
 
+		// Change camera angle if wanted
 		if (ToggleCamera) {
 			ToggleCameraAngle();
 		}
-
-
-//		GameObject.FindGameObjectsWithTag("ExpPoint").
-//		exppoint.transform.position(GameObject.FindGameObjectWithTag("Player"));
 	}
 
 	void FixedUpdate () {
@@ -70,6 +87,7 @@ public class Player : MonoBehaviour {
 		mouseX = Input.GetAxis("Mouse X");
 		look = Input.GetAxis ("Look");
 		Fire1 = Input.GetButton("Fire1");
+//		Fire2 = Input.GetButton("Fire2");
 		//bool FlyUp = Input.GetButton("FlyUp");
 		//bool FlyDown = Input.GetButton("FlyDown");
 		Boost = Input.GetButton("Boost");
@@ -84,18 +102,8 @@ public class Player : MonoBehaviour {
 		transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
 		transform.Rotate (Vector3.up * look * (MouseSensitivity * 1.5f) * Time.deltaTime);
 	}
-
-
-
+	
 	void ToggleCameraAngle(){
-//		Debug.Log (cam.localPosition);
-//		Debug.Log (cam.localEulerAngles);
-//		Debug.Log (cam.localScale);
-
-//		(0.0, 8.4, -6.5)
-//		(24.7, 0.0, 0.0)
-//		(1.0, 1.0, 1.0)
-
 		if (cam.localPosition != new Vector3(0.0f, 50.0f, 15.0f)) {
 			cam.localPosition = new Vector3 (0.0f, 50.0f, 15.0f);
 			cam.localEulerAngles = new Vector3 (80.0f, 0.0f, 0.0f);
