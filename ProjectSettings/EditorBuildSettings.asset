@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
+    path: Assets/Scenes/map01.unity
+  - enabled: 1
+    path: Assets/Scenes/map02.unity
+  - enabled: 1
     path: Assets/Scenes/test01.unity
+  - enabled: 1
+    path: Assets/Scenes/test02.unity
   - enabled: 1
     path: Assets/Scenes/kuroto_test.unity
