@@ -61,7 +61,10 @@ public class Enemy : MonoBehaviour {
 			Debug.DrawLine (raycastOrigin, raycastHit.point, Color.red, 1.0f, true);
 
 			if (raycastHit.transform.tag == "Player") {
-				Shoot ();
+				// Don't shoot if player is already dead
+				if (!player.GetComponent<Player>().dead) {
+					Shoot ();
+				}
 				LookAtPlayer();
 			}
 

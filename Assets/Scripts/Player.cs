@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
+	[HideInInspector]
+	public bool dead = false;
+
 	public Rigidbody PrimaryWeaponType;
 	public Rigidbody SecondaryWeaponType;
 	public double PrimaryRefireRate = 8;
@@ -44,63 +47,67 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// Fire1 update
-		if (Fire1 && i1 >= (1 / PrimaryRefireRate))
-		{
-			Projectile = Instantiate(PrimaryWeaponType,
-			            PrimaryWeaponOrigin.transform.position, 
-			            PrimaryWeaponOrigin.transform.rotation) as Rigidbody;
-			Projectile.tag = PrimaryWeaponType.tag;
-			Projectile.GetComponent<Missile>().Friendly = true;
-			Projectile.GetComponent<Missile>().Level = gameObject.GetComponent<Experience>().GetLevel();
-			i1 = 0;
-		}
-	        else if (i1 > PrimaryRefireRate)
-	            i1 = 0;
-		i1 += Time.deltaTime;
+		if (!dead) {
+			// Fire1 update
+			if (Fire1 && i1 >= (1 / PrimaryRefireRate))
+			{
+				Projectile = Instantiate(PrimaryWeaponType,
+				            PrimaryWeaponOrigin.transform.position, 
+				            PrimaryWeaponOrigin.transform.rotation) as Rigidbody;
+				Projectile.tag = PrimaryWeaponType.tag;
+				Projectile.GetComponent<Missile>().Friendly = true;
+				Projectile.GetComponent<Missile>().Level = gameObject.GetComponent<Experience>().GetLevel();
+				i1 = 0;
+			}
+		        else if (i1 > PrimaryRefireRate)
+		            i1 = 0;
+			i1 += Time.deltaTime;
 
-		// Fire2 update
-//		if (Fire1 && i2 >= (1 / SecondaryRefireRate))
-//		{
-//			HitscanDirection = transform.TransformDirection(Vector3.forward);
-//			HitscanOrigin = SecondaryWeaponOrigin.transform.position;
-//
-//			if (Physics.Raycast(HitscanOrigin, HitscanDirection, out HitscanHit, 300.0f)){
-//				Debug.DrawLine (HitscanOrigin, HitscanHit.point, Color.cyan, 1.0f, true);
-//			}
-//			i2 = 0;
-//		}
-//		else if (i2 > SecondaryRefireRate)
-//			i2 = 0;
-//		i2 += Time.deltaTime;
+			// Fire2 update
+	//		if (Fire1 && i2 >= (1 / SecondaryRefireRate))
+	//		{
+	//			HitscanDirection = transform.TransformDirection(Vector3.forward);
+	//			HitscanOrigin = SecondaryWeaponOrigin.transform.position;
+	//
+	//			if (Physics.Raycast(HitscanOrigin, HitscanDirection, out HitscanHit, 300.0f)){
+	//				Debug.DrawLine (HitscanOrigin, HitscanHit.point, Color.cyan, 1.0f, true);
+	//			}
+	//			i2 = 0;
+	//		}
+	//		else if (i2 > SecondaryRefireRate)
+	//			i2 = 0;
+	//			i2 += Time.deltaTime;
 
-		// Change camera angle if wanted
-		if (ToggleCamera) {
-			ToggleCameraAngle();
+			// Change camera angle if wanted
+			if (ToggleCamera) {
+				ToggleCameraAngle();
+			}
 		}
 	}
 
 	void FixedUpdate () {
-		// Movement update
-		h = Input.GetAxis("Horizontal");
-		v = Input.GetAxis("Vertical");
-		mouseX = Input.GetAxis("Mouse X");
-		look = Input.GetAxis ("Look");
-		Fire1 = Input.GetButton("Fire1");
-//		Fire2 = Input.GetButton("Fire2");
-		//bool FlyUp = Input.GetButton("FlyUp");
-		//bool FlyDown = Input.GetButton("FlyDown");
-		Boost = Input.GetButton("Boost");
-		ToggleCamera = Input.GetButtonUp ("ToggleCameraMode");
-		
-		MovementSpeedBonus = Boost ? SpeedBoostMultiplier : 1f;
-		
-		transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-		transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
-		transform.Rotate (Vector3.up * look * (MouseSensitivity * 1.5f) * Time.deltaTime);
+		if (!dead) {
+			// Movement update
+			h = Input.GetAxis("Horizontal");
+			v = Input.GetAxis("Vertical");
+			mouseX = Input.GetAxis("Mouse X");
+			look = Input.GetAxis ("Look");
+			Fire1 = Input.GetButton("Fire1");
+	//		Fire2 = Input.GetButton("Fire2");
+			//bool FlyUp = Input.GetButton("FlyUp");
+			//bool FlyDown = Input.GetButton("FlyDown");
+			Boost = Input.GetButton("Boost");
+			ToggleCamera = Input.GetButtonUp ("ToggleCameraMode");
+			
+			MovementSpeedBonus = Boost ? SpeedBoostMultiplier : 1f;
+			
+			transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+			transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+			//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+			//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+			transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
+			transform.Rotate (Vector3.up * look * (MouseSensitivity * 1.5f) * Time.deltaTime);
+		}
 	}
 	
 	void ToggleCameraAngle(){

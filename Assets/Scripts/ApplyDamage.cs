@@ -33,6 +33,7 @@ public class ApplyDamage : MonoBehaviour {
 	}
 	
 	void Die() {
+
 		if (tag != "Player") {
 			GameObject exppoint;
 			Instantiate(Explosion, transform.position, transform.rotation);
@@ -75,8 +76,11 @@ public class ApplyDamage : MonoBehaviour {
 			Destroy(gameObject); // remove the object that died
 		}
 		else{
-			// Player death code here
-//			Application.LoadLevel("MainMenu");
+			// Player death code here.
+			if (!player.GetComponent<Player>().dead) {
+				Instantiate(Explosion, transform.position, transform.rotation);
+				player.renderer.enabled = false;
+			}
 		}
 	}
 }

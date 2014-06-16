@@ -17,6 +17,17 @@ public class Buoy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (BuoyActive && HealthPool > 0) {
+			//green
+			light.color = Color.green;
+		} else if (!BuoyActive && HealthPool > 0) {
+			//white
+			light.color = Color.white;
+		} else if (HealthPool < 1) {
+			//red
+			light.color = Color.red;
+		}
+
 	}
 
 	void FixedUpdate(){
