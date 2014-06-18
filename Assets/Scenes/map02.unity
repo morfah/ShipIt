@@ -19,7 +19,7 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2675fa597025e67448ac3b1065da4caf, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1a36f0f2809334c7eb91408d8ee4d16f, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3

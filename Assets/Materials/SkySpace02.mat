@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SkySpace01
+  m_Name: SkySpace02
   m_Shader: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -24,42 +24,42 @@ Material:
         first:
           name: _FrontTex
         second:
-          m_Texture: {fileID: 2800000, guid: 61dd8b9b2fe00dd438c437dead1f8548, type: 3}
+          m_Texture: {fileID: 2800000, guid: 30d98fe4580264d829305c4f02cfbafa, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BackTex
         second:
-          m_Texture: {fileID: 2800000, guid: 245aafecd42826146a2ef94d6e302123, type: 3}
+          m_Texture: {fileID: 2800000, guid: dcf0584572d90492781675dac04651dc, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _LeftTex
         second:
-          m_Texture: {fileID: 2800000, guid: e9c8f39d1f87c49488411e50bc9d169d, type: 3}
+          m_Texture: {fileID: 2800000, guid: f0d7c7adba6a84a5bbdc4b0dcd6e3bc8, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _RightTex
         second:
-          m_Texture: {fileID: 2800000, guid: 9030b4b257523e64fbba7c9c637899bf, type: 3}
+          m_Texture: {fileID: 2800000, guid: c10921ca63a9c474680780ef0f7533cf, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _UpTex
         second:
-          m_Texture: {fileID: 2800000, guid: 875a2cca7da38614eaa8c30920ddae26, type: 3}
+          m_Texture: {fileID: 2800000, guid: 97ac65043fa57404d95cc166beb64689, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _DownTex
         second:
-          m_Texture: {fileID: 2800000, guid: 22b01431daef8ab419caf9b01a6fa4e6, type: 3}
+          m_Texture: {fileID: 2800000, guid: 9f20d5135bb2244ff9dd638a2d53f729, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
@@ -71,4 +71,4 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: .536764741, g: .536764741, b: .536764741, a: .501960814}
+        second: {r: .53725493, g: .53725493, b: .53725493, a: .501960814}
