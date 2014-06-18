@@ -48,8 +48,8 @@ public class Enemy : MonoBehaviour {
 			if (raycastHit.transform.tag == "Player") {
 				if (distToPlayer > 10f) {
 					MoveToPlayer();
-					LookAtPlayer();
 				}
+				LookAtPlayer();
 			}
 
 		}
