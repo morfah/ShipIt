@@ -29,7 +29,17 @@ public class ApplyDamage : MonoBehaviour {
 	}
 
 	void Damage(float dmg) {
-		HealthPoints -= (int)dmg;
+		float apdmg = dmg * 0.6f;
+		float hpdmg = dmg * 0.4f;
+
+		ArmorPoints -= (int)apdmg;
+
+		// If ArmorPoints went below 0 add that damage to hpdmg
+		if (ArmorPoints < 0) {
+			hpdmg += (float)(ArmorPoints * -1);
+			ArmorPoints = 0;
+		}
+		HealthPoints -= (int)hpdmg;
 	}
 	
 	void Die() {

@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 100
-  ArmorPoints: 0
+  ArmorPoints: 100
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
   VisualExpPoint: {fileID: 100000, guid: 3af363a321c784ffc99d821297200d3b, type: 2}
 --- !u!23 &206465800
@@ -6710,7 +6710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 100
-  ArmorPoints: 0
+  ArmorPoints: 100
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
   VisualExpPoint: {fileID: 100000, guid: 3af363a321c784ffc99d821297200d3b, type: 2}
 --- !u!23 &928454845
@@ -6940,7 +6940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 100
-  ArmorPoints: 0
+  ArmorPoints: 100
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
   VisualExpPoint: {fileID: 100000, guid: 3af363a321c784ffc99d821297200d3b, type: 2}
 --- !u!23 &985178261
@@ -7086,7 +7086,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
       propertyPath: Level
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1a28af9d1a2ed14099f4fcf54c5ba72, type: 2}
@@ -10960,7 +10960,7 @@ MonoBehaviour:
   SecondaryWeaponOrigin: {fileID: 1367884389}
   MovementSpeed: 10
   TurnSpeed: 5
-  Level: 2
+  Level: 9
 --- !u!114 &1541822201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10974,7 +10974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 100
-  ArmorPoints: 0
+  ArmorPoints: 100
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
   VisualExpPoint: {fileID: 100000, guid: 3af363a321c784ffc99d821297200d3b, type: 2}
 --- !u!23 &1541822202
@@ -13453,7 +13453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 100
-  ArmorPoints: 0
+  ArmorPoints: 100
   Explosion: {fileID: 100000, guid: 77f3184bb81a8da4cba460e40f9683f8, type: 2}
   VisualExpPoint: {fileID: 100000, guid: 3af363a321c784ffc99d821297200d3b, type: 2}
 --- !u!23 &1956484937
