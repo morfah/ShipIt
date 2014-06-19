@@ -15,6 +15,9 @@ public class Player : MonoBehaviour {
 	public float MovementSpeed = 10f;
 	public float MouseSensitivity = 10f;
 	public float SpeedBoostMultiplier = 2f;
+	private Vector3 MoveDirection = Vector3.zero;
+	private float StartYPosition;
+	public float pushPower = 150.0f;
 
 	private double i1 = 0;
 //	private double i2 = 0;
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		Screen.lockCursor = true; // so that the mouse wont escape the window
 		cam = Camera.main.camera.transform;
+		StartYPosition = transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -87,7 +91,9 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (!dead) {
+
 			// Movement update
+			CharacterController controller = GetComponent<CharacterController>();
 			h = Input.GetAxis("Horizontal");
 			v = Input.GetAxis("Vertical");
 			mouseX = Input.GetAxis("Mouse X");
@@ -100,14 +106,37 @@ public class Player : MonoBehaviour {
 			ToggleCamera = Input.GetButtonUp ("ToggleCameraMode");
 			
 			MovementSpeedBonus = Boost ? SpeedBoostMultiplier : 1f;
-			
-			transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
-			transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+
+			if (Boost)
+				Fire1 = false; // you can't boost n' shoot
+
+			MoveDirection = new Vector3(h, StartYPosition - transform.position.y , v);
+			MoveDirection = transform.TransformDirection(MoveDirection);
+			MoveDirection *= MovementSpeed * MovementSpeedBonus;
+
+			controller.Move(MoveDirection * Time.deltaTime);
+
+//			rigidbody.AddForce(MoveDirection.x, MoveDirection.y, MoveDirection.z, ForceMode.Acceleration);
+
+
+//			transform.Translate(Vector3.right * h * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
+//			transform.Translate(Vector3.forward * v * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 			//transform.Translate(Vector3.up * FlyUp * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 			//transform.Translate(Vector3.down * FlyDown * (MovementSpeed * MovementSpeedBonus) * Time.deltaTime);
 			transform.Rotate(Vector3.up * mouseX * MouseSensitivity * Time.deltaTime);
 			transform.Rotate (Vector3.up * look * (MouseSensitivity * 1.5f) * Time.deltaTime);
+
+
 		}
+	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		Rigidbody body = hit.collider.attachedRigidbody;
+		if (body == null || body.isKinematic || body.tag == "Missile")
+			return;
+
+		Vector3 pushDir = new Vector3(hit.moveDirection.x, hit.moveDirection.y, hit.moveDirection.z);
+		body.velocity = pushDir * (pushPower / body.mass);
 	}
 	
 	void ToggleCameraAngle(){

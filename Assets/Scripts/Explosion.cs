@@ -53,7 +53,7 @@ public class Explosion : MonoBehaviour {
 					}
 					// Hit Player
 					else if (hit.tag == "Player") {
-						hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
+//						hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
 					}
 				}
 
@@ -61,7 +61,7 @@ public class Explosion : MonoBehaviour {
 				else {
 					// Hit Enemy
 					if (hit.tag == "Enemy") {
-						hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
+//						hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
 					}
 					// Hit Player
 					else if (hit.tag == "Player") {

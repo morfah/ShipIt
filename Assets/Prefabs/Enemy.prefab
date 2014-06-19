@@ -487,8 +487,9 @@ MonoBehaviour:
   SecondaryRefireRate: 0
   PrimaryWeaponOrigin: {fileID: 100000}
   SecondaryWeaponOrigin: {fileID: 100008}
-  MovementSpeed: 10
+  MovementSpeed: 18
   TurnSpeed: 5
+  pushPower: 150
   Level: 1
 --- !u!143 &14300000
 CharacterController:

@@ -112,6 +112,17 @@ public class HUD : MonoBehaviour {
 					experiencestyle
 			);
 
+			// Radar
+//			GUI.Box (new Rect (Screen.width - (Screen.width / 6),0,Screen.width / 6, Screen.width / 6),
+//			         "Radar");
+//			Camera[] cameras = FindObjectsOfType(typeof(Camera)) as Camera[];
+//			foreach (Camera cam in cameras) {
+//				if (cam.name == "RadarCam") {
+//					cam.rect = new Rect (0f,0f,0.5f,0.5f);
+//				}
+//			}
+
+
 		}
 	}
 

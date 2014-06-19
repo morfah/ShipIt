@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour {
 
 	public int MovementSpeed = 10;
 	public float TurnSpeed = 5f;
+	private float StartYPosition;
+	public float pushPower = 150.0f;
 
 	public int Level = 1;
 
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindWithTag("Player");
+		StartYPosition = transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +40,7 @@ public class Enemy : MonoBehaviour {
 
 		raycastOrigin = transform.position;
 		raycastDirection = player.transform.position - transform.position;
-		raycastDirection.y = 0; 
+		raycastDirection.y = StartYPosition - transform.position.y; 
 		raycastDirection.Normalize();
 
 		// Check if the enemy can see the Player
@@ -46,9 +49,10 @@ public class Enemy : MonoBehaviour {
 			Debug.DrawLine (raycastOrigin, raycastHit.point, Color.cyan, 1.0f, true);
 
 			if (raycastHit.transform.tag == "Player") {
-				if (distToPlayer > 10f) {
-					MoveToPlayer();
-				}
+				if (distToPlayer > 10f)
+					MoveToPlayer(false);
+				else if (distToPlayer < 7f)
+					MoveToPlayer(true); // Backs away from player
 				LookAtPlayer();
 			}
 
@@ -69,6 +73,15 @@ public class Enemy : MonoBehaviour {
 			}
 
 		}
+	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		Rigidbody body = hit.collider.attachedRigidbody;
+		if (body == null || body.isKinematic || body.tag == "Missile")
+			return;
+		
+		Vector3 pushDir = new Vector3(hit.moveDirection.x, hit.moveDirection.y, hit.moveDirection.z);
+		body.velocity = pushDir * (pushPower / body.mass);
 	}
 
 	void Shoot() {
@@ -102,10 +115,26 @@ public class Enemy : MonoBehaviour {
 			                 TurnSpeed * Time.deltaTime);
 	}
 
-	void MoveToPlayer() {
-		float step = MovementSpeed * Time.deltaTime;
+	void MoveToPlayer(bool moveaway) {
 		gameObject.renderer.material.color = Color.magenta;
-		transform.position = Vector3.MoveTowards (transform.position, player.transform.position, step);
+
+		CharacterController controller = GetComponent<CharacterController>();
+		Vector3 moveDirection;
+
+		if (moveaway) moveDirection = transform.position - player.transform.position;
+		else moveDirection = player.transform.position - transform.position;
+
+		moveDirection.y = StartYPosition - transform.position.y; 
+		moveDirection.Normalize();
+
+		moveDirection *= MovementSpeed;
+
+//		Debug.Log ("movedir = " + moveDirection);
+		
+		controller.Move(moveDirection * Time.deltaTime);
+//		float step = MovementSpeed * Time.deltaTime;
+//		transform.position = Vector3.MoveTowards (transform.position, player.transform.position, step);
+
 	}
 
 	public int GetEnemyLevel () {
