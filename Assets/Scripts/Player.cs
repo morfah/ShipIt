@@ -132,7 +132,7 @@ public class Player : MonoBehaviour {
 
 	void OnControllerColliderHit(ControllerColliderHit hit) {
 		Rigidbody body = hit.collider.attachedRigidbody;
-		if (body == null || body.isKinematic || body.tag == "Missile")
+		if (body == null || body.isKinematic || body.tag == "Missile" || body.tag == "Player" || body.tag == "Enemy")
 			return;
 
 		Vector3 pushDir = new Vector3(hit.moveDirection.x, hit.moveDirection.y, hit.moveDirection.z);

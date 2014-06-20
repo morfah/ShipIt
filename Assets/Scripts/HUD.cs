@@ -32,6 +32,7 @@ public class HUD : MonoBehaviour {
 
 	void OnGUI () {
 		if (hp.HealthPoints <= 0) {
+			Screen.lockCursor = false;
 			player.dead = true;
 			GUIStyle deathstyle = new GUIStyle ("box");
 			deathstyle.fontSize = 25;
