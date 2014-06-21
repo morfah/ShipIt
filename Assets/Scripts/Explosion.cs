@@ -8,14 +8,14 @@ public class Explosion : MonoBehaviour {
 	public float physPushRadius = 50.0F;
 	public float physPushPower = 100.0F;
 	public float damageRadius = 3F;
+	[HideInInspector]
+	public float baseDamage = 25.0f;
 	public GameObject particlesExplosion;
 	[HideInInspector]
 	public int Level = 1;
 	[HideInInspector]
 	public bool Friendly = true;
-
-	private const float BASE_EXPLOSION_DAMAGE = 25.0f;
-
+	
 	// Use this for initialization
 	void Start () {
 		// Initial light range is 10
@@ -40,7 +40,7 @@ public class Explosion : MonoBehaviour {
 			if (hit){
 				// A Explosion hit Lootcrate
 				if (hit.tag == "SmallLootCrate" || hit.tag == "LargeLootCrate") {
-					hit.SendMessage("Damage", BASE_EXPLOSION_DAMAGE);
+					hit.SendMessage("Damage", baseDamage);
 				}
 
 				// Friendly Explosion caused by a friendly missile.
@@ -48,7 +48,7 @@ public class Explosion : MonoBehaviour {
 					// Hit Enemy
 					if (hit.tag == "Enemy") {
 						Enemy enemy = hit.GetComponent<Enemy>();
-						float Damage = BASE_EXPLOSION_DAMAGE * ((float)Level / (float)enemy.GetEnemyLevel());
+						float Damage = baseDamage * ((float)Level / (float)enemy.GetEnemyLevel());
 						hit.SendMessage("Damage", Damage);
 					}
 					// Hit Player
@@ -66,7 +66,7 @@ public class Explosion : MonoBehaviour {
 					// Hit Player
 					else if (hit.tag == "Player") {
 						Experience playerxp = hit.GetComponent<Experience>();
-						float Damage = BASE_EXPLOSION_DAMAGE * ((float)Level / (float)playerxp.GetLevel());
+						float Damage = baseDamage * ((float)Level / (float)playerxp.GetLevel());
 						hit.SendMessage("Damage", Damage);
 					}
 				}

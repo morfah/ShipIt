@@ -745,10 +745,10 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.80210912
   m_Radius: 1.38999999
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: .0799999982
-  m_MinMoveDistance: 0
+  m_MinMoveDistance: .0599999987
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
