@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
 	private float v;
 	private float mouseX;
 	private bool Fire1;
-//	private bool Fire2;
+	//private bool Fire2;
 	private bool Boost;
 	private float look;
 	private bool ToggleCamera;
