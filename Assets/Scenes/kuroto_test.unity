@@ -12,10 +12,10 @@ SceneSettings:
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: .00999999978
+  m_FogDensity: .00749999983
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
@@ -3046,10 +3046,10 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.80210912
   m_Radius: 1.38999999
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: .0799999982
-  m_MinMoveDistance: 0
+  m_MinMoveDistance: .0599999987
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &506832818
 MonoBehaviour:
@@ -4798,8 +4798,8 @@ GameObject:
   - 65: {fileID: 602895128}
   - 23: {fileID: 602895127}
   - 114: {fileID: 602895126}
-  - 114: {fileID: 602895125}
   - 143: {fileID: 602895124}
+  - 114: {fileID: 602895125}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -4834,8 +4834,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.80210912
   m_Radius: 1.38999999
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
+  m_SlopeLimit: 0
+  m_StepOffset: 0
   m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
@@ -4848,19 +4848,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 602895122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8cd147b76770e2478adceaa12e120da, type: 3}
+  m_Script: {fileID: 11500000, guid: fef0608abd9bd4ebfbeda4ac3daa0faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 18
+  TurnSpeed: 5
+  pushPower: 150
+  Level: 1
   PrimaryWeaponType: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
   SecondaryWeaponType: {fileID: 0}
   PrimaryRefireRate: 3
   SecondaryRefireRate: 0
   PrimaryWeaponOrigin: {fileID: 881620267}
   SecondaryWeaponOrigin: {fileID: 1201181306}
-  MovementSpeed: 18
-  TurnSpeed: 5
-  pushPower: 150
-  Level: 1
 --- !u!114 &602895126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6421,8 +6421,8 @@ GameObject:
   - 65: {fileID: 918811353}
   - 23: {fileID: 918811352}
   - 114: {fileID: 918811351}
-  - 114: {fileID: 918811350}
   - 143: {fileID: 918811349}
+  - 114: {fileID: 918811350}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -6457,8 +6457,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.80210912
   m_Radius: 1.38999999
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
+  m_SlopeLimit: 0
+  m_StepOffset: 0
   m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
@@ -6471,19 +6471,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 918811347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8cd147b76770e2478adceaa12e120da, type: 3}
+  m_Script: {fileID: 11500000, guid: fef0608abd9bd4ebfbeda4ac3daa0faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 18
+  TurnSpeed: 5
+  pushPower: 150
+  Level: 1
   PrimaryWeaponType: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
   SecondaryWeaponType: {fileID: 0}
   PrimaryRefireRate: 3
   SecondaryRefireRate: 0
   PrimaryWeaponOrigin: {fileID: 2016409134}
   SecondaryWeaponOrigin: {fileID: 2052843248}
-  MovementSpeed: 18
-  TurnSpeed: 5
-  pushPower: 150
-  Level: 1
 --- !u!114 &918811351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8999,6 +8999,7 @@ MonoBehaviour:
   physPushRadius: 50
   physPushPower: 100
   damageRadius: 3
+  baseDamage: 25
   particlesExplosion: {fileID: 0}
   Level: 1
   Friendly: 1
@@ -13619,6 +13620,7 @@ MonoBehaviour:
   physPushRadius: 50
   physPushPower: 100
   damageRadius: 3
+  baseDamage: 25
   particlesExplosion: {fileID: 0}
   Level: 1
   Friendly: 1
@@ -16253,8 +16255,8 @@ GameObject:
   - 65: {fileID: 2125137771}
   - 23: {fileID: 2125137770}
   - 114: {fileID: 2125137769}
-  - 114: {fileID: 2125137768}
   - 143: {fileID: 2125137767}
+  - 114: {fileID: 2125137768}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -16289,8 +16291,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.80210912
   m_Radius: 1.38999999
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
+  m_SlopeLimit: 0
+  m_StepOffset: 0
   m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
@@ -16303,19 +16305,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125137765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8cd147b76770e2478adceaa12e120da, type: 3}
+  m_Script: {fileID: 11500000, guid: fef0608abd9bd4ebfbeda4ac3daa0faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 18
+  TurnSpeed: 5
+  pushPower: 150
+  Level: 1
   PrimaryWeaponType: {fileID: 5400000, guid: 51b6dcc15a982d64e8653ae2ea542f8a, type: 2}
   SecondaryWeaponType: {fileID: 0}
   PrimaryRefireRate: 3
   SecondaryRefireRate: 0
   PrimaryWeaponOrigin: {fileID: 11146932}
   SecondaryWeaponOrigin: {fileID: 1907829567}
-  MovementSpeed: 18
-  TurnSpeed: 5
-  pushPower: 150
-  Level: 1
 --- !u!114 &2125137769
 MonoBehaviour:
   m_ObjectHideFlags: 0
